@@ -15,14 +15,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $_SESSION['id_number'] = $row['id_number'];  
             $_SESSION['username'] = $row['name'];
             $_SESSION['role'] = $row['role'];
-            // for roles
-            if ($row['role'] == 'club_member') {
-                header('Location: pages/dashboard/member/member_dashboard.php');
-            } elseif ($row['role'] == 'club_core') {
-                header('Location: pages/dashboard/core/core_dashboard.php');
-            } elseif ($row['role'] == 'DSIOG') {
-                header('Location: pages/dashboard/dsiog/dsiog_dashboard.php');
-            }
+            header('location:pages/dashboard/dashboard.php');
             exit();
         } else {
             echo "Invalid username or password.";

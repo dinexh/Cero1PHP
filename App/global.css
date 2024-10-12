@@ -16,7 +16,7 @@
 }
 
 .land-in {
-    min-height: 85vh; /* Allow it to grow */
+
     width: 98%;
     padding: 0.5rem;
     display: flex;

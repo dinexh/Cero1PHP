@@ -8,7 +8,7 @@ include "./includes/nav.php";
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ZeroOne Portal</title>
-    <link rel="stylesheet" href="global.css">
+    <link rel="stylesheet" href=".css">
 </head>
 <body>
     <div class="land">
