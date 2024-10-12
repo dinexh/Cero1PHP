@@ -10,7 +10,7 @@ $role = isset($_SESSION['role']) ? $_SESSION['role'] : 'Unknown Role';
 <div class="dashnav">
     <div class="dashnav-in">
         <div class="dashnav-in-one">
-            <h1>Zero<span>One</span>Portal</h1>
+            <h1>Zero<span>One</span> Portal</h1>
         </div>
         <div class="dashnav-in-two">
             <p><?php echo $id_number; ?> / <?php echo $name; ?> / <?php echo $role; ?></p>
