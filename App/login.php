@@ -1,12 +1,9 @@
 <?php
 session_start();
 include 'db.php'; 
-
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $username = $_POST['username'];
     $password = $_POST['password'];
-
-    // Modify the query to select id_number as well
     $stmt = $conn->prepare("SELECT id_number, name, role, password FROM users WHERE id_number = ?");
     $stmt->bind_param("s", $username);
     $stmt->execute();
@@ -14,15 +11,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     if ($result->num_rows > 0) {
         $row = $result->fetch_assoc();
-
-        // Check if the password is correct
         if (password_verify($password, $row['password'])) {
-            // Store id_number, name, and role in session
-            $_SESSION['id_number'] = $row['id_number'];  // id_number now correctly fetched
+            $_SESSION['id_number'] = $row['id_number'];  
             $_SESSION['username'] = $row['name'];
             $_SESSION['role'] = $row['role'];
-
-            // Redirect based on role
+            // for roles
             if ($row['role'] == 'club_member') {
                 header('Location: pages/dashboard/member/member_dashboard.php');
             } elseif ($row['role'] == 'club_core') {
