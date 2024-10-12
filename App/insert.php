@@ -3,13 +3,6 @@ include 'db.php';
 
 // Sample values to insert
 $users = [
-    // [
-    //     'id_number' => '2300032238',
-    //     'name' => 'Yaswanth Kalluri',
-    //     'password' => password_hash('yash', PASSWORD_DEFAULT),
-    //     'mail' => '2300032238@Kluniversity.in',
-    //     'role' => 'club_member'
-    // ],
     [
         'id_number' => '2300032425',
         'name' => 'mahitha',

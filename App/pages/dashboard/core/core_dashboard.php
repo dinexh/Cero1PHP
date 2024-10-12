@@ -1,14 +1,11 @@
 <?php
 session_start();
-define('BASE_PATH', __DIR__ . '/../../'); // Set a base path for includes
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
 
-$dashnavPath = BASE_PATH . "includes/dashnav.php"; // Use the base path
-
-if (file_exists($dashnavPath)) {
-    include $dashnavPath;
-} else {
-    echo "Navigation file not found."; // Error message if the file is not found
-}
+$dashnavPath = __DIR__ . '/../../../includes/dashnav.php'; // For dashnav
+$footerPath = __DIR__ . '/../../../includes/footer.php';   // Correct path for footer
 ?>
 
 <!DOCTYPE html>
@@ -22,7 +19,15 @@ if (file_exists($dashnavPath)) {
     <div class="dash">
         <div class="dash-in">
             <div class="dash-nav">
-                <!-- Only include the navigation here, since you've already included it earlier -->
+                <?php include $dashnavPath; ?>
+            </div>
+            <div class="dash-main">
+                This is core Dashboard
+            </div>
+            <div class="dash-footer">
+                <footer>
+                    <?php include $footerPath; ?>
+                </footer>
             </div>
         </div>
     </div>
