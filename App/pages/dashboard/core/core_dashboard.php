@@ -1,13 +1,12 @@
 <?php
 session_start();
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
-
-$dashnavPath = __DIR__ . '/../../../includes/dashnav.php'; // For dashnav
-$footerPath = __DIR__ . '/../../../includes/footer.php';   // Correct path for footer
+if(!isset($_SESSION['id_number']))
+{
+    header('Location: /index.php');
+}
+$dashnavPath = __DIR__ . '/../../../includes/dashnav.php'; 
+$footerPath = __DIR__ . '/../../../includes/footer.php';  
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
