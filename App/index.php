@@ -15,6 +15,7 @@ include "./includes/nav.php";
         <div class="land-in">
             <div class="land-nav">
                 <nav>
+                <!-- <?php include "./includes/nav.php"; ?> -->
                 </nav>
             </div>
             <div class="land-main">

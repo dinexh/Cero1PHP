@@ -218,14 +218,3 @@ nav {
 .footer-in a:hover {
     color: blue;
 }
-
-/* Media Queries */
-@media (max-width: 768px) {
-    .land-main {
-        flex-direction: column; /* Stack elements */
-    }
-
-    .land-main-in-one, .land-main-in-two {
-        width: 100%; /* Full width */
-    }
-}
