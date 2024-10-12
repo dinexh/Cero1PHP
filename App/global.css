@@ -1,0 +1,231 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+.land {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.land-in {
+    min-height: 85vh; /* Allow it to grow */
+    width: 98%;
+    padding: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.land-nav, .land-footer {
+    width: 100%;
+}
+.land-main {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    flex-grow: 1; /* Ensure this takes available space */
+}
+.land-main-in {
+    width: 95%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.land-main-in-one {
+    width: 60%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.land-main-in-one-img img {
+    width: 90%; /* Scale with the container width */
+    height: auto; /* Maintain aspect ratio */
+    object-fit: cover; /* Cover the area */
+}
+.land-main-in-two {
+    width: 35%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.land-main-in-two-in {
+    padding: 2rem;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    background-color: #fff;
+    box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+    border-radius: 12px;
+    max-width: 450px;
+}
+.land-main-in-two-in-heading {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
+.land-main-in-two-in-heading h1 {
+    font-size: 2.2rem;
+    font-weight: 600;
+}
+.land-main-in-two-in-heading p {
+    font-size: 1.2rem;
+    font-weight: 400;
+    color: grey;
+}
+.land-main-in-form {
+    width: 100%;
+}
+.form-group {
+    width: 100%;
+    margin-bottom: 1.5rem;
+    display: flex;
+    flex-direction: column;
+}
+.form-group label {
+    padding-bottom: 0.5rem;
+    font-size: 1rem;
+    color: #555;
+}
+.form-group input {
+    padding: 0.75rem;
+    border: 1.5px solid #ccc;
+    width: 100%;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+.form-group input:focus {
+    border-color: black;
+    box-shadow: 0px 0px 6px rgba(0, 123, 255, 0.2);
+    outline: none;
+}
+.form-group-button {
+    width: 100%;
+    margin-top: 1rem;
+    display: flex;
+    justify-content: center;
+}
+.form-group-button button {
+    padding: 0.8rem 1.5rem;
+    width: 100%;
+    max-width: 200px;
+    border: none;
+    border-radius: 8px;
+    background-color: black;
+    color: #fff;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+.form-group-button button:hover {
+    background-color: blue;
+    transform: scale(1.01);
+}
+.form-group-password {
+    margin-top: 1rem;
+    width: 100%;
+    text-align: center;
+}
+.form-group-password p {
+    font-size: 1rem;
+    font-weight: 400;
+    color: #007bff;
+    cursor: pointer;
+}
+.form-group-password p:hover {
+    text-decoration: underline;
+}
+/* nav starts here */
+nav {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: black;
+    color: white;
+}
+
+.nav-in {
+    padding: 0.5rem;
+    width: 95%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-in-one h1 {
+    font-size: 1.6rem;
+    font-weight: 500;
+    color: white;
+}
+
+.nav-in-one span {
+    color: blue;
+    font-size: 1.6rem;
+    font-weight: 500;
+}
+
+.nav-in-two-in p {
+    font-size: 1.1rem;
+    font-weight: 400;
+    color: white;
+    padding: 0.4rem;
+}
+
+.nav-in-two-in p:hover {
+    border-radius: 10px;
+    background-color: blue;
+    transition: 0.2s ease;
+}
+
+/* footer styles */
+.footer {
+    width: 100%;
+    background-color: black;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.footer-in {
+    padding: 1rem;
+    width: 95%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.footer-in p {
+    font-size: 1rem;
+    font-weight: 400;
+}
+
+.footer-in a {
+    text-decoration: none;
+    color: white;
+}
+
+.footer-in a:hover {
+    color: blue;
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+    .land-main {
+        flex-direction: column; /* Stack elements */
+    }
+
+    .land-main-in-one, .land-main-in-two {
+        width: 100%; /* Full width */
+    }
+}
