@@ -3,13 +3,20 @@ include 'db.php';
 
 // Sample values to insert
 $users = [
+    // [
+    //     'id_number' => '2300032238',
+    //     'name' => 'Yaswanth Kalluri',
+    //     'password' => password_hash('yash', PASSWORD_DEFAULT),
+    //     'mail' => '2300032238@Kluniversity.in',
+    //     'role' => 'club_member'
+    // ],
     [
-        'id_number' => '2300030350',
-        'name' => 'Dinesh Korukonda',
-        'password' => password_hash('123', PASSWORD_DEFAULT), // Hashing the password
-        'mail' => 'alice@example.com',
-        'role' => 'club_member'
-    ],
+        'id_number' => '2300032425',
+        'name' => 'mahitha',
+        'password' => password_hash('123', PASSWORD_DEFAULT),
+        'mail' => '2300032425@kluniversity.in',
+        'role' => 'club_core'
+    ]
 ];
 
 // Prepare and bind
