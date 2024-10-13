@@ -1,0 +1,41 @@
+nav {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: black;
+    color: white;
+}
+
+.nav-in {
+    padding: 0.5rem;
+    width: 95%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-in-one h1 {
+    font-size: 1.6rem;
+    font-weight: 500;
+    color: white;
+}
+
+.nav-in-one span {
+    color: blue;
+    font-size: 1.6rem;
+    font-weight: 500;
+}
+
+.nav-in-two-in p {
+    font-size: 1.1rem;
+    font-weight: 400;
+    color: white;
+    padding: 0.4rem;
+}
+
+.nav-in-two-in p:hover {
+    border-radius: 10px;
+    background-color: blue;
+    transition: 0.2s ease;
+}

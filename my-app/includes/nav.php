@@ -1,6 +1,6 @@
 <?php
 ?>
-<link rel="stylesheet" href="./global.css"> 
+<link rel="stylesheet" href="includes/nav.css"> 
 <nav>
     <div class="nav-in">
         <div class="nav-in-one">

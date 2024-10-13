@@ -1,0 +1,51 @@
+.dashnav {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: black;
+    color: white;
+}
+.dashnav-in {
+    padding: 0.5rem;
+    width: 95%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.dashnav-in-one h1 {
+    font-size: 1.6rem;
+    font-weight: 500;
+    color: white;
+}
+.dashnav-in-one span {
+    color: blue;
+    font-size: 1.6rem;
+    font-weight: 500;
+}
+.dashnav-in-two{
+    width: 35%;
+    display:flex;
+    justify-content:space-around;
+    align-items:center;
+}
+.dashnav-in-one span {
+    color: blue;
+    font-size: 1.6rem;
+    font-weight: 500;
+}
+.dashnav-in-two p {
+    font-size: 1.1rem;
+    font-weight: 400;
+    color: white;
+    padding: 0.4rem;
+}
+.dashnav-in-two a {
+    color: white;
+    text-decoration: none;
+    padding: 0.4rem;
+    border-radius: 4px;
+}
+.dashnav-in-two a:hover {
+    background-color: blue;
+}

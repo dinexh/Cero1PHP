@@ -2,11 +2,11 @@
 if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
-$id_number = isset($_SESSION['id_number']) ? $_SESSION['id_number'] : 'Unknown ID'; // Use id_number
-$name = isset($_SESSION['username']) ? $_SESSION['username'] : 'Unknown Name'; // Use username for name
+$id_number = isset($_SESSION['id_number']) ? $_SESSION['id_number'] : 'Unknown ID';
+$name = isset($_SESSION['username']) ? $_SESSION['username'] : 'Unknown Name'; 
 $role = isset($_SESSION['role']) ? $_SESSION['role'] : 'Unknown Role';
 ?>
-<link rel="stylesheet" href="../../../global.css">
+<link rel="stylesheet" href="../../includes/dashnav.css">
 <div class="dashnav">
     <div class="dashnav-in">
         <div class="dashnav-in-one">

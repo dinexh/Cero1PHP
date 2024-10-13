@@ -32,15 +32,11 @@ $pageTitle = 'Dashboard';
     <div class="dashboard">
         <div class="dashboard-in">
             <div class="dashboard-nav">
-                <?php 
-                include '../../includes/dashnav.php'; 
-                ?>
+                <?php include '../../includes/dashnav.php'; ?>
             </div>
             <div class="dashboard-container">
                 <div class="dashboard-sidebar">
-                    <?php 
-                    include '../../includes/sidebar.php'; 
-                    ?>
+                    <?php include '../../includes/sidebar.php'; ?>
                 </div>
                 <div class="dashboard-content">
                     <h2>Welcome, <?php echo ucfirst($userRole); ?>!</h2>
@@ -55,14 +51,13 @@ $pageTitle = 'Dashboard';
                 </div>
             </div>
             <div class="dashboard-footer">
-                <?php 
-                include '../../includes/footer.php'; 
-                ?> 
+                <?php include '../../includes/footer.php'; ?>
             </div>
         </div>
     </div>
     <script src="dashboard.js"></script>
 </body>
+
 </html>
 <script>
       const baseURL = "<?php echo BASE_URL; ?>";

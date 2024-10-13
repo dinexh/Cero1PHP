@@ -1,0 +1,29 @@
+.footer {
+    width: 100%;
+    background-color: black;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.footer-in {
+    padding: 1rem;
+    width: 95%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.footer-in p {
+    font-size: 1rem;
+    font-weight: 400;
+}
+
+.footer-in a {
+    text-decoration: none;
+    color: white;
+}
+.footer-in a:hover {
+    color: blue;
+}
