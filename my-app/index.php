@@ -26,7 +26,7 @@ session_start();
                                 <h2>ZeroOne Portal</h2>
                                 <p>Build Create Inspire Transform</p>
                             </div>
-                            <form action="login.php" method="post">
+                            <form action="/auth/login.php" method="post">
                                 <div class="input-group">
                                     <label for="username">Username</label>
                                     <input type="text" id="username" name="username"  required>

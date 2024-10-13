@@ -1,6 +1,6 @@
 <?php
 session_start();
-include 'db.php'; 
+include '../db.php'; 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $username = $_POST['username'];
     $password = $_POST['password'];
@@ -15,7 +15,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $_SESSION['id_number'] = $row['id_number'];  
             $_SESSION['username'] = $row['name'];
             $_SESSION['role'] = $row['role'];
-            header('location:pages/dashboard/dashboard.php');
+            header('location:../pages/dashboard/dashboard.php');
             exit();
         } else {
             echo "Invalid username or password.";

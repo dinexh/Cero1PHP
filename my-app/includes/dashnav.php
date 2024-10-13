@@ -14,7 +14,7 @@ $role = isset($_SESSION['role']) ? $_SESSION['role'] : 'Unknown Role';
         </div>
         <div class="dashnav-in-two">
             <p><?php echo $id_number; ?> / <?php echo $name; ?> / <?php echo $role; ?></p>
-            <a href="/logout.php">Logout</a>
+            <a href="../../auth/logout.php">Logout</a>
         </div>
     </div>
 </div>
