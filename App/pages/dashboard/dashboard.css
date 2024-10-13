@@ -46,7 +46,6 @@ body{
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    overflow-y: auto; 
 }
 .dashboard-footer {
     width: 100%; 

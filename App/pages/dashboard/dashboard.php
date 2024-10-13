@@ -3,7 +3,7 @@ session_start();
 require_once '../../db.php';
 require_once '../../config.php';
 if (!isset($_SESSION['id_number'])) {
-    header("Location: ../index.php"); 
+    header("Location: ../index.php");
     exit();
 }
 $userId = $_SESSION['id_number'];
@@ -16,16 +16,9 @@ if ($query->execute()) {
     echo "Error executing query: " . $query->error;
     exit();
 }
-
 $query->close();
-$pageTitle = 'Dashboard'; 
 
-if (isset($_SESSION['role'])) {
-    $userRole = $_SESSION['role'];
-} else {
-    header("Location: ../index.php"); 
-    exit();
-}
+$pageTitle = 'Dashboard'; 
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -68,5 +61,9 @@ if (isset($_SESSION['role'])) {
             </div>
         </div>
     </div>
+    <script src="dashboard.js"></script>
 </body>
 </html>
+<script>
+      const baseURL = "<?php echo BASE_URL; ?>";
+</script>
