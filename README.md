@@ -184,39 +184,4 @@ The ZeroOne Portal is a centralized digital platform designed to streamline comm
 
 The ZeroOne Portal is designed to be a comprehensive tool that enhances collaboration, communication, and engagement within the ZeroOne Code Club. By addressing the needs of all user roles, the portal aims to foster a vibrant community and facilitate successful project execution.
 
-## 12. Appendix
 
-### Appendix A: Cohorts Details
-
-1. **Phantom**: An experienced cohort of members regularly engaging in projects.
-2. **Falcons**: Learners collaborating with experienced members.
-3. **Nebula**: A new member cohort being introduced to the club's initiatives.
-
-### Appendix B: Project Creation Form Fields
-
-- Project Title
-- Description
-- Team Members
-- Start and End Dates
-- Objectives and Goals
-
-### Appendix C: Event Planning Checklist
-
-1. Define event objectives.
-2. Select date and venue.
-3. Create promotional materials.
-4. Manage registrations.
-5. Gather feedback post-event.
-
-### Appendix D: User Role Definitions
-
-- **Club Members**: Standard users with access to basic functionalities.
-- **Admins**: Users with elevated permissions to manage the portal.
-- **DSIOG**: High-level overseers of club operations.
-- **Advisors**: Faculty providing guidance and support.
-
-### Appendix E: Security Best Practices
-
-1. Use strong, unique passwords.
-2. Enable multi-factor authentication.
-3. Regularly update software to patch vulnerabilities.
