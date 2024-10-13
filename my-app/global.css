@@ -1,154 +1,117 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
-
 * {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
     font-family: "Poppins", sans-serif;
 }
-::-webkit-scrollbar {
-    display: none;
-}
-body{
-    height: 100vh;
+.landing-container{
+    min-height: 100vh;
     width: 100%;
-    background-position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
-.land {
+.landing-container-in{
+    min-height: 100vh;
     width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 }
-
-.land-in {
-
-    width: 98%;
+.landing-nav{
+    flex-shrink: 0;
+    width: 100%;
+}
+.landing-footer{
+    width: 100%;
+}
+.landing-main-container{
+    flex: 1;
+    width: 100%;
+    /* min-height: 88vh; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.landing-main-container-in{
     padding: 0.5rem;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-.land-nav, .land-footer {
-    width: 100%;
-}
-.land-main {
-    display: flex;
-    width: 100%;
-    justify-content: space-between;
-    align-items: center;
-    flex-grow: 1; /* Ensure this takes available space */
-}
-.land-main-in {
     width: 95%;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
 }
-.land-main-in-one {
+.landing-main-container-in-one{
     width: 60%;
+}
+.landing-main-container-in-one img{
+    width: 80%;
+    object-fit: contain;
+}
+.landing-main-container-in-two{
+    width: 40%;
     display: flex;
     justify-content: center;
     align-items: center;
-}
-.land-main-in-one-img img {
-    width: 90%; /* Scale with the container width */
-    height: auto; /* Maintain aspect ratio */
-    object-fit: cover; /* Cover the area */
-}
-.land-main-in-two {
-    width: 35%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-.land-main-in-two-in {
     padding: 2rem;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
+}
+.form-container{
     background-color: #fff;
-    box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
-    border-radius: 12px;
-    max-width: 450px;
-}
-.land-main-in-two-in-heading {
+    padding: 2rem;
+    border-radius: 1rem;
+    box-shadow: 0 0.5rem 2rem rgba(0, 0, 0, 0.1);
     width: 100%;
+    max-width: 30rem;
     text-align: center;
-    margin-bottom: 1.5rem;
 }
-.land-main-in-two-in-heading h1 {
-    font-size: 2.2rem;
-    font-weight: 600;
+.form-heading h2 {
+    font-size: 2rem;
+    color: black;
+    margin-bottom: 0.5rem;
 }
-.land-main-in-two-in-heading p {
+.form-heading p {
     font-size: 1.2rem;
-    font-weight: 400;
-    color: grey;
+    color: #666;
+    margin-bottom: 2rem;
 }
-.land-main-in-form {
-    width: 100%;
-}
-.form-group {
-    width: 100%;
+.input-group {
     margin-bottom: 1.5rem;
-    display: flex;
-    flex-direction: column;
+    text-align: left;
 }
-.form-group label {
-    padding-bottom: 0.5rem;
+label {
     font-size: 1rem;
-    color: #555;
+    color: black;
+    margin-bottom: 0.5rem;
+    display: block;
 }
-.form-group input {
-    padding: 0.75rem;
-    border: 1.5px solid #ccc;
+input[type="text"],
+input[type="password"] {
     width: 100%;
-    border-radius: 8px;
+    padding: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 0.5rem;
     font-size: 1rem;
-    transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
-.form-group input:focus {
-    border-color: black;
-    box-shadow: 0px 0px 6px rgba(0, 123, 255, 0.2);
-    outline: none;
-}
-.form-group-button {
+button {
     width: 100%;
-    margin-top: 1rem;
-    display: flex;
-    justify-content: center;
-}
-.form-group-button button {
-    padding: 0.8rem 1.5rem;
-    width: 100%;
-    max-width: 200px;
-    border: none;
-    border-radius: 8px;
+    padding: 1rem;
     background-color: black;
-    color: #fff;
+    color: white;
+    border: none;
+    border-radius: 0.5rem;
     font-size: 1rem;
-    font-weight: 500;
     cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.3s ease;
 }
-.form-group-button button:hover {
-    background-color: blue;
-    transform: scale(1.01);
-}
-.form-group-password {
+.forgot-password {
+    font-size: 0.9rem;
     margin-top: 1rem;
-    width: 100%;
-    text-align: center;
 }
-.form-group-password p {
-    font-size: 1rem;
-    font-weight: 400;
-    color: #007bff;
-    cursor: pointer;
+.forgot-password a {
+    color: grey;
+    text-decoration: none;
 }
-.form-group-password p:hover {
+.forgot-password a:hover {
     text-decoration: underline;
 }
 /* nav starts here */

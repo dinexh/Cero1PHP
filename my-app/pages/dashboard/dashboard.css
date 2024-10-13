@@ -27,7 +27,6 @@ body{
     display: flex; 
     flex-direction: column; 
 }
-
 .dashboard-nav {
     width: 100%; 
 }
