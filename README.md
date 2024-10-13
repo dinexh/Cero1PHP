@@ -1,6 +1,6 @@
-# ZeroOne Portal
+# Cero1PHP
 
-The **ZeroOne Portal** is a centralized platform designed to enhance communication, project management, event organization, and resource sharing within the ZeroOne Code Club.
+Cero1PHP is a web application designed to facilitate collaboration and management within the ZeroOne Code Club. It serves as a centralized portal for communication, project management, event organization, and resource sharing.
 
 ## Table of Contents
 1. [Introduction](#introduction)
@@ -9,11 +9,12 @@ The **ZeroOne Portal** is a centralized platform designed to enhance communicati
 4. [User Roles](#user-roles)
 5. [Features](#features)
 6. [Technology Stack](#technology-stack)
-7. [Implementation Plan](#implementation-plan)
-8. [Conclusion](#conclusion)
+7. [File Structure](#file-structure)
+8. [Implementation Plan](#implementation-plan)
+9. [Conclusion](#conclusion)
 
 ## Introduction
-The ZeroOne Portal streamlines collaboration among students, core members, advisors, and the Directorate for Strategic Initiatives and Operational Governance (DSIOG).
+Cero1PHP streamlines collaboration among students, core members, advisors, and the Directorate for Strategic Initiatives and Operational Governance (DSIOG).
 
 ## Objectives
 - **User-Friendly Interface**: Intuitive navigation for all user levels.
@@ -42,8 +43,37 @@ The ZeroOne Portal streamlines collaboration among students, core members, advis
 ## Technology Stack
 - **Frontend & Backend**: PHP, JavaScript
 - **Database**: MySQL
+- **Containerization**: Docker
 - **Version Control**: Git
-- **DevOps**: Docker
+
+## File Structure
+The following is the directory structure of the Cero1PHP project:
+
+Cero1PHP ├── Dockerfile # Docker configuration file for container setup ├── LICENSE # License file for the project ├── README.md # Documentation for the project ├── docker-compose.yml # Docker Compose configuration for multi-container applications └── my-app # Main application directory ├── assets # Directory for static assets like images │ └── Team_Work.jpg # Image asset used in the application ├── config.php # Configuration file for database and application settings ├── db.php # Database connection file ├── global.css # Global stylesheet for the application ├── includes # Directory for reusable PHP components │ ├── dashnav.php # Navigation component for the dashboard │ ├── footer.php # Footer component included in pages │ ├── nav.php # Main navigation component for the application │ ├── sidebar.css # Stylesheet for the sidebar component │ └── sidebar.php # Sidebar component included in pages ├── index.php # Main entry point of the application ├── insert.php # File for handling data insertion into the database ├── login.php # User login page ├── logout.php # User logout functionality └── pages # Directory for application-specific pages ├── dashboard # Dashboard page directory │ ├── dashboard.css # Stylesheet specific to the dashboard │ ├── dashboard.js # JavaScript for dashboard functionality │ └── dashboard.php # Dashboard page implementation └── sidebarOptions # Directory for sidebar option pages ├── cohorts.php # Page for managing cohorts └── projects.php # Page for managing projects
+
+### File Descriptions:
+- **Dockerfile**: A script for building the Docker image for the application, defining how the environment is set up.
+- **LICENSE**: Contains the licensing information for the project.
+- **README.md**: Provides documentation about the project, including objectives, features, and usage instructions.
+- **docker-compose.yml**: A configuration file for Docker Compose, allowing you to define and run multi-container Docker applications.
+- **my-app/**: The main directory containing all application files.
+  - **assets/**: Contains static files like images used in the application.
+  - **config.php**: Configuration file to set up database connection and application settings.
+  - **db.php**: Handles database connections and queries.
+  - **global.css**: Global CSS file for styles shared across the application.
+  - **includes/**: Contains reusable components of the application, such as navigation and footer.
+    - **dashnav.php**: Navigation bar for the dashboard.
+    - **footer.php**: Footer section of the application.
+    - **nav.php**: Main navigation structure.
+    - **sidebar.css**: Styles for the sidebar component.
+    - **sidebar.php**: Sidebar structure used in various pages.
+  - **index.php**: The main entry point for the application that handles routing and displaying content.
+  - **insert.php**: Handles data insertion for forms and databases.
+  - **login.php**: Manages user login functionality.
+  - **logout.php**: Implements user logout functionality.
+  - **pages/**: Contains specific pages of the application, such as:
+    - **dashboard/**: Directory containing files for the dashboard page, including its CSS and JavaScript.
+    - **sidebarOptions/**: Contains specific options for the sidebar, like cohorts and projects management.
 
 ## Implementation Plan
 1. **Phase 1**: Core functionalities development.
@@ -52,5 +82,5 @@ The ZeroOne Portal streamlines collaboration among students, core members, advis
 4. **Phase 4**: Official launch and user onboarding.
 
 ## Conclusion
-The ZeroOne Portal aims to foster collaboration and engagement within the ZeroOne Code Club, enhancing project execution and community building.
+Cero1PHP aims to foster collaboration and engagement within the ZeroOne Code Club, enhancing project execution and community building.
 
