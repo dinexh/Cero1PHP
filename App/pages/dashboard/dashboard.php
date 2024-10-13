@@ -18,9 +18,7 @@ if ($query->execute()) {
 }
 
 $query->close();
-
-$currentPage = 'dashboard'; // Change this accordingly
-$pageTitle = 'Dashboard'; // Set the page title
+$pageTitle = 'Dashboard'; 
 
 if (isset($_SESSION['role'])) {
     $userRole = $_SESSION['role'];
