@@ -1,12 +1,12 @@
 .sidebar {
     width: 100%;
-    min-height: 90vh;
-    background-color: black;
     display: flex;
     justify-content: center;
     align-items: center;
+    background-color: black;
 }
 .sidebar-in {
+    min-height: 80vh;
     overflow: hidden;
     width: 95%;
     padding: 1rem;
@@ -15,7 +15,6 @@
     justify-content: flex-start;
     align-items: flex-start;
     border: 2px solid #000;
-    border-radius: 8px;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
 }
 .sidebar-in h3 {
