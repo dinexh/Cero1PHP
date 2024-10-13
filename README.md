@@ -150,8 +150,8 @@ The ZeroOne Portal is a centralized digital platform designed to streamline comm
 |------------------|----------------------------------------------|
 | Frontend + Backend | PHP + JavaScript                             |
 | Database         | MySQL                                       |
-| Frameworks       | Bootstrap or Tailwind CSS for responsive design |
 | Version Control  | Git                                          |
+| DevOps           | Docker                                       |
 
 ## 7. Design and User Experience
 

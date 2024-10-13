@@ -1,0 +1,24 @@
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile  # Ensure this points to your Dockerfile
+    ports:
+      - "80:80"
+    volumes:
+      - ./my-app:/var/www/html
+    depends_on:
+      - db
+
+  db:
+    image: mysql:8.0
+    environment:
+      MYSQL_DATABASE: your_database_name
+      MYSQL_USER: your_user
+      MYSQL_PASSWORD: your_password
+      MYSQL_ROOT_PASSWORD: root_password
+    volumes:
+      - db_data:/var/lib/mysql
+
+volumes:
+  db_data:
