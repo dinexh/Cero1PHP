@@ -8,13 +8,10 @@ if (isset($_SESSION['role'])) {
 }
 ?>
 <link rel="stylesheet" href="<?php echo BASE_URL; ?>includes/sidebar.css">
-<aside class="sidebar">
+<aside class="sidebar" id="sidebar">
     <div class="sidebar-in">
-        <h3>Dashboard Menu</h3>
+        <h3>Sidebar Menu</h3>
         <ul>
-            <!-- Profile -->
-            <li><a href="#" data-page="profile" class="<?php echo ($currentPage == 'profile') ? 'active' : ''; ?>">Profile</a></li>
-
             <!-- Options for club_member -->
             <?php if ($userRole == 'club_member'): ?>
                 <li><a href="#" data-page="club_member/cohorts" class="<?php echo ($currentPage == 'cohorts') ? 'active' : ''; ?>">Cohorts</a></li>
@@ -85,16 +82,13 @@ if (isset($_SESSION['role'])) {
                 <?php endif; ?>
 
             <?php endif; ?>
-
-            <!-- Logout -->
+            <li><a href="#" data-page="profile" class="<?php echo ($currentPage == 'profile') ? 'active' : ''; ?>">Profile</a></li>
             <li><a href="<?php echo BASE_URL; ?>logout.php">Logout</a></li>
         </ul>
     </div>
 </aside>
-
-<!-- JavaScript to handle the dropdown toggling -->
 <script>
-    document.querySelectorAll('.dropdown-toggle').forEach(function(toggle) {
+       document.querySelectorAll('.dropdown-toggle').forEach(function(toggle) {
         toggle.addEventListener('click', function(e) {
             e.preventDefault();
             const dropdownMenu = this.nextElementSibling;
