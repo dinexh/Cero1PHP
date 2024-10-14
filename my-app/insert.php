@@ -8,14 +8,14 @@ $users = [
         'password' => password_hash('123', PASSWORD_DEFAULT),
         'mail' => '2300030350@kluniversity.in',
         'role' => 'DSIOG',
-        'cohort' => 'phantom'
+        'cohort' => 'TNTC'
     ],
     [
-        'id_number' => '2300033327',
-        'name' => 'N Sai Rekha',
+        'id_number' => '2300031401',
+        'name' => 'K Nithin Kumar',
         'password' => password_hash('123', PASSWORD_DEFAULT),
-        'mail' => '2300033327@kluniversity.in',
-        'role' => 'DSIOG',
+        'mail' => '2300031401@kluniversity.in',
+        'role' => 'club_member',
         'cohort' => 'phantom'
     ]
 ];
