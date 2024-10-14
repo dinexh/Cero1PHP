@@ -41,6 +41,7 @@ body {
     height: auto; 
 }
 .dashboard-content {
+    background-color: grey;
     width: 80%;
     display: flex;
     flex-direction: column;
