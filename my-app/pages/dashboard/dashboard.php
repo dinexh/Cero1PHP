@@ -39,15 +39,7 @@ $pageTitle = 'Dashboard';
                     <?php include '../../includes/sidebar.php'; ?>
                 </div>
                 <div class="dashboard-content">
-                    <h2>Welcome, <?php echo ucfirst($userRole); ?>!</h2>
-                    <p>Your dashboard is ready to use.</p>
-                    <?php if ($userRole == 'club_member'): ?>
-                        <p>Here are your upcoming events...</p>
-                    <?php elseif ($userRole == 'club_core'): ?>
-                        <p>Manage your projects here...</p>
-                    <?php elseif ($userRole == 'DSIOG'): ?>
-                        <p>Your responsibilities are listed here...</p>
-                    <?php endif; ?>
+                    <?php include '../sidebarOptions/home.php'; ?>
                 </div>
             </div>
             <div class="dashboard-footer">
