@@ -1,10 +1,96 @@
 ﻿Id_number,name ,password,mail,role,cohort
-2300032729,Vempali Eswar,123,2300032729@kluniversity.in,club_core,falcon
-2300080016,Gudla Govardhan Sai ,123,2300080016@kluniversity.in,club_core,falcon
-2300030928,Dunna Sai Gowri Sireesha,123,2300030928@kluniversity.in,club_core,falcon
-2300033546,Ayush Kumar,123,2300033546@kluniversity.in,club_core,falcon
-2300032536,TAMMINENI MONIKA,123,2300032536@kluniversity.in,club_core,falcon
-2200031219,Pavan Karthik M,123,2200031219@kluniversity.in,DSIOG,LEAD
-2200030805,T Sai Manikanta,123,2200030805@kluniversity.in,DSIOG,TNTC
-2300032746,Ganguri Devi Anshu,123,2300032746@kluniversity.in,DSIOG,TNTC
-2300032048,G Pavan Karthik,123,2300032048@kluniversity.in,DSIOG,TNTC
+2300030244,G Yasaswini,2300030244,2300030244@kluniversity.in,club_member,phantom
+2300030570,Rachapudi Sai Sree,2300030570,2300030570@kluniversity.in,club_member,phantom
+2300030004,ABBINA LAHYA SRI ,2300030004,2300030004@kluniversity.in,club_member,falcon
+2300030050,Athukuri Bhavya sri ,2300030050,2300030050@kluniversity.in,club_member,falcon
+2300030118,Chapa Deekshitha,2300030118,2300030118@kluniversity.in,club_member,falcon
+2300030173,DUDDUKURU SANHITHA ,2300030173,2300030173@kluniversity.in,club_member,falcon
+2300030219,Gorantla hima bindu,2300030219,2300030219@kluniversity.in,club_member,falcon
+2300030025,Alapati kavya sri ,2300030025,2300030025@kluniversity.in,club_member,falcon
+2300030072,Barma Aswini,2300030072,2300030072@kluniversity.in,club_member,falcon
+2300030131,Jahnavi Reddy,2300030131,2300030131@kluniversity.in,club_member,falcon
+2300030185,GADAMSETTY KEERTHI ,2300030185,2300030185@kluniversity.in,club_member,falcon
+2300080023,Kollipara Sai Iswarya ,2300080023,2300080023@kluniversity.in,club_member,falcon
+2300080419,Polla krishna vamsi ,2300080419,2300080419@kluniversity.in,club_member,falcon
+2300080049,VELISETTY HARSHINI ,2300080049,2300080049@kluniversity.in,club_member,falcon
+2300090033,Naga Anjali Nandhamuri ,2300090033,2300090033@kluniversity.in,club_member,falcon
+2300090224,Jodhani Tanishq Dharmendra ,2300090224,2300090224@kluniversity.in,club_member,falcon
+2300090249,PADALA TEJASRI REDDY ,2300090249,2300090249@kluniversity.in,club_member,falcon
+2300090387,Gandla Himaja ,2300090387,2300090387@kluniversity.in,club_member,falcon
+2300031403,Sai Pradhun,2300031403,2300031403@kluniversity.in,club_member,falcon
+2300031516,Naga Lakshmi,2300031516,2300031516@kluniversity.in,club_member,falcon
+2300090301,M Sharanya ,2300090301,2300090301@kluniversity.in,club_member,falcon
+2300033484,THOTA NIKHITHA,2300033484,2300033484@kluniversity.in,club_member,falcon
+2300080355,Thirumala Teja,2300080355,2300080355@kluniversity.in,club_member,falcon
+2300031549,Bachampally Saipraneeth,2300031549,2300031549@kluniversity.in,club_member,falcon
+2300030247,Gurthurthi Bhuvaneswari ,2300030247,2300030247@kluniversity.in,club_member,falcon
+2300030320,Keerthi Sri Ambica Devi Pujari ,2300030320,2300030320@kluniversity.in,club_member,falcon
+2300030367,KUKKALA SAI HARSHINI ,2300030367,2300030367@kluniversity.in,club_member,falcon
+2300030487,P.Ankita,2300030487,2300030487@kluniversity.in,club_member,falcon
+2300030655,Sunkavalli Akshaya,2300030655,2300030655@kluniversity.in,club_member,falcon
+2300030312,Beshwanth sai katari,2300030312,2300030312@kluniversity.in,club_member,falcon
+2300030332,KOLLI RISHITHA ,2300030332,2300030332@kluniversity.in,club_member,falcon
+2300030459,NADHAM SAI PALLAVI,2300030459,2300030459@kluniversity.in,club_member,falcon
+2300030594,SAI SINDHUJA CHINNAM,2300030594,2300030594@kluniversity.in,club_member,falcon
+2300030673,TELAGAMSETTI KAVYA,2300030673,2300030673@kluniversity.in,club_member,falcon
+2300030700,Vaitla Harshitha ,2300030700,2300030700@kluniversity.in,club_member,falcon
+2300030752,Yathapu Sunaina,2300030752,2300030752@kluniversity.in,club_member,falcon
+2300030899,Shaik Mahammad Althaf ,2300030899,2300030899@kluniversity.in,club_member,falcon
+2300031093,KEDARISETTI KRISHNA CHAITANYA,2300031093,2300031093@kluniversity.in,club_member,falcon
+2300031246,PENUGONDA D N V S CHANDRA SEKHAR,2300031246,2300031246@kluniversity.in,club_member,falcon
+2300030713,Veeramachaneni jayathi ,2300030713,2300030713@kluniversity.in,club_member,falcon
+2300030897,Narla Lakshmi Alekhya,2300030897,2300030897@kluniversity.in,club_member,falcon
+2300031099,NALLAPANENI LAKSHMI SOWJANYA ,2300031099,2300031099@kluniversity.in,club_member,falcon
+2300031248,K Tirumala Raju,2300031248,2300031248@kluniversity.in,club_member,falcon
+2300031302,KOLA VIJAYA RAJU,2300031302,2300031302@kluniversity.in,club_member,falcon
+2300031461,Bhavani Devabhakthuni ,2300031461,2300031461@kluniversity.in,club_member,falcon
+2300031513,Geethika Tummala ,2300031513,2300031513@kluniversity.in,club_member,falcon
+2300031746,Joshika Vallabhaneni,2300031746,2300031746@kluniversity.in,club_member,falcon
+2300031485,KALAGARLA GOVARDHINI SRIHITHA ,2300031485,2300031485@kluniversity.in,club_member,falcon
+2300031544,Sindhu Varshini Uddavolu ,2300031544,2300031544@kluniversity.in,club_member,falcon
+2300031852,Lahari Alapati ,2300031852,2300031852@kluniversity.in,club_member,falcon
+2300031890,Ghanta Pavani,2300031890,2300031890@kluniversity.in,club_member,falcon
+2300032079,AVULAPATI LAKSHMI POOJITHA SREE ,2300032079,2300032079@kluniversity.in,club_member,falcon
+2300032108,ADABALA KAVYA,2300032108,2300032108@kluniversity.in,club_member,falcon
+2300032202,VYTLA SRUJANA RANJANI ,2300032202,2300032202@kluniversity.in,club_member,falcon
+2300031990,K. Anugya Reddy ,2300031990,2300031990@kluniversity.in,club_member,falcon
+2300032052,Naramaneni Rishitha ,2300032052,2300032052@kluniversity.in,club_member,falcon
+2300032091,KATURI NEERAJADEVI ,2300032091,2300032091@kluniversity.in,club_member,falcon
+2300032161,BOJANAPALLI MEENA PADMA SIRI ,2300032161,2300032161@kluniversity.in,club_member,falcon
+2300032238,KALLURI YASWANTH ,2300032238,2300032238@kluniversity.in,club_member,falcon
+2300032283,JAMMI VYSHNAVI ,2300032283,2300032283@kluniversity.in,club_member,falcon
+2300032292,Abdul Raqeeb shaik ,2300032292,2300032292@kluniversity.in,club_member,falcon
+2300032575,Mulla Javeed,2300032575,2300032575@kluniversity.in,club_member,falcon
+2300032656,Etyala Rahul ,2300032656,2300032656@kluniversity.in,club_member,falcon
+2300032290,ELURI SRI VARDHINI ,2300032290,2300032290@kluniversity.in,club_member,falcon
+2300032536,Tammineni Monika,2300032536,2300032536@kluniversity.in,club_member,falcon
+2300032592,Loshetty Akanksha Thirupathaiah,2300032592,2300032592@kluniversity.in,club_member,falcon
+2300032729,VEMPALI ESWAR ,2300032729,2300032729@kluniversity.in,club_member,falcon
+2300032777,T.ASHA SRI SAI KIRANMAI,2300032777,2300032777@kluniversity.in,club_member,falcon
+2300032833,Penakati Renu Neeraja ,2300032833,2300032833@kluniversity.in,club_member,falcon
+2300032880,MANAJIPETA ASHWINI ,2300032880,2300032880@kluniversity.in,club_member,falcon
+2300032936,Valmeti Srinidhi ,2300032936,2300032936@kluniversity.in,club_member,falcon
+2300032976,SAGIRI SNEHA ,2300032976,2300032976@kluniversity.in,club_member,falcon
+2300032791,THIRIVIDHI GAYATRI LAKSHMI ,2300032791,2300032791@kluniversity.in,club_member,falcon
+2300032841,Veeramachaneni jeevani,2300032841,2300032841@kluniversity.in,club_member,falcon
+2300032939,Bhargavi,2300032939,2300032939@kluniversity.in,club_member,falcon
+2300033133,Kilari Venkata Vyshnavi,2300033133,2300033133@kluniversity.in,club_member,falcon
+2300033153,KOPPOLU SRINIVAS CHARAN,2300033153,2300033153@kluniversity.in,club_member,falcon
+2300033196,MAMIDALA SARA DEEPIKA ,2300033196,2300033196@kluniversity.in,club_member,falcon
+2300033266,Chakka Lakshmi priya ,2300033266,2300033266@kluniversity.in,club_member,falcon
+2300033389,ADIKI SRI VARDHAN,2300033389,2300033389@kluniversity.in,club_member,falcon
+2300033494,K.NIHARIKA,2300033494,2300033494@kluniversity.in,club_member,falcon
+2300033169,Maram Lakshmi yaswitha ,2300033169,2300033169@kluniversity.in,club_member,falcon
+2300033316,DEVARAPALLI   MYDHILI ,2300033316,2300033316@kluniversity.in,club_member,falcon
+2300033406,Mokshitha.Popuri,2300033406,2300033406@kluniversity.in,club_member,falcon
+2300033497,Putti Bhargavi,2300033497,2300033497@kluniversity.in,club_member,falcon
+2300033800,Duggempudi nageswari,2300033800,2300033800@kluniversity.in,club_member,falcon
+2300033835,A.Nandini,2300033835,2300033835@kluniversity.in,club_member,falcon
+2300033901,T.Keerti Chandan,2300033901,2300033901@kluniversity.in,club_member,falcon
+2300040127,MATUKUMALLI CHAITRA,2300040127,2300040127@kluniversity.in,club_member,falcon
+2300040428,KARUPARTHY HARSHINI ,2300040428,2300040428@kluniversity.in,club_member,falcon
+2300033874,Chinnamallireddygari keerthana reddy ,2300033874,2300033874@kluniversity.in,club_member,falcon
+2300040211,Vennamaneni Bala vyshnavi ,2300040211,2300040211@kluniversity.in,club_member,falcon
+2300033813,Pratham Kumar,2300033813,2300033813@kluniversity.in,club_member,falcon
+2300090230,Sai Laxman,2300090230,2300090230@kluniversity.in,club_member,falcon
+2300060019,K. Varshini,2300060019,2300060019@kluniversity.in,club_member,falcon

@@ -86,3 +86,95 @@ td {
     text-align: center;
     margin: 20px 0;
 }
+/* cohorts-management */
+cohorts-m-container {
+    width: 90%;
+    margin: 40px auto;
+    background: #fff;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.cohorts-m-container-in {
+    padding: 20px;
+}
+
+.cohorts-m-heading {
+    text-align: center;
+    padding: 20px 0;
+    background: #007bff;
+    color: white;
+}
+
+.cohorts-m-heading h1 {
+    margin: 0;
+    font-size: 2.5rem;
+    font-weight: 500;
+}
+
+.cohort-s-subheading {
+    text-align: center;
+    padding: 20px 0;
+    background-color: #f9f9f9;
+}
+
+.cohort-s-subheading form {
+    display: inline-block;
+}
+
+.cohort-s-subheading button {
+    background: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    margin: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+}
+
+.cohort-s-subheading button:hover {
+    background-color: #0056b3;
+}
+
+.cohort-m-table {
+    padding: 20px;
+}
+
+.student-list h2 {
+    text-align: center;
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+}
+
+.student-list table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+}
+
+.student-list th, .student-list td {
+    padding: 12px;
+    border-bottom: 1px solid #ddd;
+}
+
+.student-list th {
+    background-color: #007bff;
+    color: white;
+}
+
+.student-list td {
+    background-color: #f9f9f9;
+}
+
+.student-list tr:hover {
+    background-color: #f1f1f1;
+}
+
+p {
+    text-align: center;
+    font-size: 1.2rem;
+    color: #555;
+}

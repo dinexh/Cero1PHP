@@ -31,7 +31,7 @@ body {
     width: 100%; 
 }
 .dashboard-container {
-    background-color: grey;
+    /* background-color: grey; */
     flex: 1; 
     display: flex; 
     min-height: 0; 
@@ -42,7 +42,7 @@ body {
     height: auto; 
 }
 .dashboard-content {
-    background-color: grey;
+    /* background-color: grey; */
     width: 80%;
     display: flex;
     flex-direction: column;
