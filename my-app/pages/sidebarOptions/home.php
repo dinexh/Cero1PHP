@@ -1,3 +1,26 @@
+<?php
+require_once('../../config.php');
+require_once('../../db.php');
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+}
+$id_number = isset($_SESSION['id_number']) ? $_SESSION['id_number'] : null;
+$name = 'Guest';
+
+if ($id_number) {
+    $query = "SELECT name FROM users WHERE id_number = ?";
+    $stmt = $conn->prepare($query);
+    $stmt->bind_param("s", $id_number); 
+    
+    if ($stmt->execute()) {
+        $stmt->bind_result($name);
+        if (!$stmt->fetch()) {
+            $name = 'Guest';
+        }
+    } 
+    $stmt->close();
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>

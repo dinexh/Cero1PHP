@@ -1,12 +1,13 @@
 <?php
 require_once(__DIR__ . '/../config.php');
-// session_start();
 if (isset($_SESSION['role'])) {
     $userRole = $_SESSION['role'];
 } else {
     header("Location: ../index.php");
     exit();
+    
 }
+$name = isset($_SESSION['name']) ? $_SESSION['name'] : 'Guest'; 
 ?>
 <link rel="stylesheet" href="<?php echo BASE_URL; ?>includes/sidebar.css">
 <aside class="sidebar" id="sidebar">

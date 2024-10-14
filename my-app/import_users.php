@@ -1,9 +1,7 @@
 <?php
-require_once('db.php'); // Include your database connection file
-
+require_once('db.php'); 
 // Path to your CSV file
 $csvFile = '/Users/dineshkorukonda/Developer/Cero1PHP/my-app/users.csv'; // Ensure this points to the actual CSV file
-
 // Check if the CSV file exists
 if (!file_exists($csvFile)) {
     echo "CSV file not found.";
