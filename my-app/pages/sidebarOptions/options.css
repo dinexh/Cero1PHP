@@ -28,21 +28,21 @@
     font-size: 1.6rem;
     color: #333; 
 }
-table {
+.profile-view-table table {
     width: 100%;
     margin: 20px 0;
     border-collapse: collapse;
 }
-th, td {
+.profile-view-table th, td {
     padding: 12px 15px;
     text-align: left;
     border-bottom: 1px solid #ddd;
 }
-th {
+.profile-view-table th {
     background-color: black;
     color: white;
 }
-td {
+.profile-view-table td {
     color: #555; 
     border: 1px solid black;
 }
@@ -86,95 +86,85 @@ td {
     text-align: center;
     margin: 20px 0;
 }
-/* cohorts-management */
-cohorts-m-container {
-    width: 90%;
-    margin: 40px auto;
-    background: #fff;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-    border-radius: 10px;
-    overflow: hidden;
+/* view-cohorts */
+.view-container {
+    min-height: 80vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column; 
+    justify-content: flex-start; 
+    align-items: center; 
+    background-color: #ffffff; 
+    padding: 1rem; 
 }
-
-.cohorts-m-container-in {
-    padding: 20px;
+.view-container-in {
+    width: 98%;
+    padding: 0.5rem;
+    display: flex;
+    flex-direction: column; 
+    justify-content: flex-start;
+    align-items: center;
 }
-
-.cohorts-m-heading {
+.view-container-in-heading {
+    width: 100%;
     text-align: center;
-    padding: 20px 0;
-    background: #007bff;
-    color: white;
+    margin-bottom: 0.75rem; 
 }
-
-.cohorts-m-heading h1 {
-    margin: 0;
-    font-size: 2.5rem;
+.view-container-in-heading h2 {
+    font-size: 1.3rem; 
     font-weight: 500;
+    color: #000000; 
 }
-
-.cohort-s-subheading {
-    text-align: center;
-    padding: 20px 0;
-    background-color: #f9f9f9;
+.view-container-table {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
 }
-
-.cohort-s-subheading form {
-    display: inline-block;
-}
-
-.cohort-s-subheading button {
-    background: #007bff;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    margin: 5px;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 1rem;
-    transition: background-color 0.3s ease;
-}
-
-.cohort-s-subheading button:hover {
-    background-color: #0056b3;
-}
-
-.cohort-m-table {
-    padding: 20px;
-}
-
-.student-list h2 {
-    text-align: center;
-    font-size: 1.8rem;
-    margin-bottom: 20px;
-}
-
-.student-list table {
+.view-container-table table {
     width: 100%;
     border-collapse: collapse;
-    text-align: left;
+    margin-bottom: 15px; 
 }
-
-.student-list th, .student-list td {
-    padding: 12px;
-    border-bottom: 1px solid #ddd;
-}
-
-.student-list th {
-    background-color: #007bff;
-    color: white;
-}
-
-.student-list td {
-    background-color: #f9f9f9;
-}
-
-.student-list tr:hover {
-    background-color: #f1f1f1;
-}
-
-p {
+.view-container-table th, td {
+    padding: 8px 10px; 
     text-align: center;
-    font-size: 1.2rem;
-    color: #555;
+    border: 1px solid #000000; /* Black borders */
+    font-size: 0.85rem; /* Smaller font size */
+}
+.view-container-table th {
+    background-color: #000000; /* Black header background */
+    color: white; /* White text in headers */
+    font-weight: bold;
+}
+.view-container-table td {
+    background-color: #ffffff; /* White background */
+    color: #000000; /* Black text */
+}
+.view-container-table tr:nth-child(even) {
+    background-color: #f4f4f4; /* Light grey for alternate rows */
+}
+.view-container-table tr:hover {
+    background-color: #eaeaea; /* Slightly darker grey on hover */
+}
+.view-container-table select {
+    padding: 6px;
+    border-radius: 4px;
+    border: 1px solid #000000; /* Black border */
+    background-color: #ffffff; /* White background */
+    font-size: 0.85rem; /* Smaller font */
+    color: #000000; /* Black text */
+}
+.view-container-table button {
+    padding: 6px 10px; /* Smaller padding */
+    background-color: #000000; /* Black button */
+    color: white; /* White text */
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.85rem; /* Smaller font */
+    transition: background-color 0.2s ease;
+}
+.view-container-table button:hover {
+    background-color: #333333; /* Darker grey on hover */
 }
