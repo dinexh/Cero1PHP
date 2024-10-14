@@ -1,7 +1,6 @@
 <?php
 session_start();
-require_once(__DIR__ . '/../../config.php');
-require_once(__DIR__ . '/../../db.php'); // Include the database connection file
+require_once(__DIR__ . '/../../../config.php');
 
 if (isset($_SESSION['role'])) {
     $userRole = $_SESSION['role'];

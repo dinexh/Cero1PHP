@@ -36,7 +36,11 @@ if (isset($_SESSION['role'])) {
 
             <!-- Options for DSIOG -->
             <?php elseif ($userRole == 'DSIOG'): ?>
+                <li>
+                <a href="#" data-page="DSIOG/cohorts_management" class="<?php echo ($currentPage == 'cohorts_management') ? 'active' : '';?>">Cohorts Management</a>
+                </li>
                 <!-- Projects Dropdown -->
+
                 <li>
                     <a href="#" class="dropdown-toggle">Projects</a>
                     <ul class="dropdown-menu">
