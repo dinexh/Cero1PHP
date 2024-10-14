@@ -12,8 +12,7 @@ if (isset($_SESSION['role'])) {
     <div class="sidebar-in">
         <h3>Dashboard Menu</h3>
         <ul>
-            <!-- Home and Profile -->
-            <!-- <li><a href="#" data-page="home" class="<?php echo ($currentPage == 'home') ? 'active' : ''; ?>">Home</a></li> -->
+            <!-- Profile -->
             <li><a href="#" data-page="profile" class="<?php echo ($currentPage == 'profile') ? 'active' : ''; ?>">Profile</a></li>
 
             <!-- Options for club_member -->
@@ -34,13 +33,13 @@ if (isset($_SESSION['role'])) {
                 <li><a href="#" data-page="club_member/feedback" class="<?php echo ($currentPage == 'feedback') ? 'active' : ''; ?>">Feedback</a></li>
                 <li><a href="#" data-page="club_member/ticket_raise" class="<?php echo ($currentPage == 'ticket_raise') ? 'active' : ''; ?>">Ticket Raise</a></li>
 
-            <!-- Options for DSIOG -->
-            <?php elseif ($userRole == 'DSIOG'): ?>
+            <!-- Options for DSIOG and club_core -->
+            <?php elseif ($userRole == 'DSIOG' || $userRole == 'club_core'): ?>
                 <li>
                 <a href="#" data-page="DSIOG/cohorts_management" class="<?php echo ($currentPage == 'cohorts_management') ? 'active' : '';?>">Cohorts Management</a>
                 </li>
-                <!-- Projects Dropdown -->
 
+                <!-- Projects Dropdown -->
                 <li>
                     <a href="#" class="dropdown-toggle">Projects</a>
                     <ul class="dropdown-menu">
@@ -80,8 +79,10 @@ if (isset($_SESSION['role'])) {
                     </ul>
                 </li>
 
-                <!-- Termination -->
-                <li><a href="#" data-page="DSIOG/termination" class="<?php echo ($currentPage == 'termination') ? 'active' : ''; ?>">Termination</a></li>
+                <!-- Only for DSIOG, exclude for club_core -->
+                <?php if ($userRole == 'DSIOG'): ?>
+                    <li><a href="#" data-page="DSIOG/termination" class="<?php echo ($currentPage == 'termination') ? 'active' : ''; ?>">Termination</a></li>
+                <?php endif; ?>
 
             <?php endif; ?>
 
