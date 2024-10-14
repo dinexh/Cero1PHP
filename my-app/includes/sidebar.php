@@ -1,5 +1,6 @@
 <?php
 require_once(__DIR__ . '/../config.php');
+// session_start();
 if (isset($_SESSION['role'])) {
     $userRole = $_SESSION['role'];
 } else {
@@ -12,12 +13,10 @@ if (isset($_SESSION['role'])) {
     <div class="sidebar-in">
         <h3>Sidebar Menu</h3>
         <ul>
+            <!-- common options for everyone -->
+            <li><a href="#" data-page="home" class="<?php echo ($currentPage == 'home') ? 'active' : ''; ?>">Home</a></li>
             <!-- Options for club_member -->
             <?php if ($userRole == 'club_member'): ?>
-                <li><a href="#" data-page="club_member/cohorts" class="<?php echo ($currentPage == 'cohorts') ? 'active' : ''; ?>">Cohorts</a></li>
-                <li><a href="#" data-page="club_member/projects" class="<?php echo ($currentPage == 'projects') ? 'active' : ''; ?>">Projects</a></li>
-                
-                <!-- Events Dropdown for club_member -->
                 <li>
                     <a href="#" class="dropdown-toggle">Events</a>
                     <ul class="dropdown-menu">
@@ -25,18 +24,47 @@ if (isset($_SESSION['role'])) {
                         <li><a href="#" data-page="club_member/myevents">My Events</a></li>
                     </ul>
                 </li>
-
-                <li><a href="#" data-page="club_member/achievements" class="<?php echo ($currentPage == 'achievements') ? 'active' : ''; ?>">Achievements</a></li>
-                <li><a href="#" data-page="club_member/feedback" class="<?php echo ($currentPage == 'feedback') ? 'active' : ''; ?>">Feedback</a></li>
-                <li><a href="#" data-page="club_member/ticket_raise" class="<?php echo ($currentPage == 'ticket_raise') ? 'active' : ''; ?>">Ticket Raise</a></li>
-
-            <!-- Options for DSIOG and club_core -->
-            <?php elseif ($userRole == 'DSIOG' || $userRole == 'club_core'): ?>
                 <li>
-                <a href="#" data-page="DSIOG/cohorts_management" class="<?php echo ($currentPage == 'cohorts_management') ? 'active' : '';?>">Cohorts Management</a>
+                    <a href="#" class="dropdown-toggle">Projects</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#" data-page="add_project">Add Project</a></li>
+                        <li><a href="#" data-page="my_projects">My Projects</a></li>
+                    </ul>
                 </li>
-
-                <!-- Projects Dropdown -->
+                <li><a href="#" data-page="club_member/cohorts" class="<?php echo ($currentPage == 'cohorts') ? 'active' : ''; ?>">Cohorts</a></li>
+                <li><a href="#" data-page="club_member/achievements" class="<?php echo ($currentPage == 'achievements') ? 'active' : ''; ?>">Achievements</a></li>
+                <li>
+                    <a href="#" class="dropdown-toggle">Feedback</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#" data-page="add_feedback">Add Feedback</a></li>
+                        <li><a href="#" data-page="my_feedback">My Feedback</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#" class="dropdown-toggle">Grievance</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#" data-page="add_ticket">Add Ticket</a></li>
+                        <li><a href="#" data-page="my_ticket">My Tickets</a></li>
+                    </ul>
+                </li>
+            <!-- Options for club_core -->
+            <?php elseif ($userRole == 'club_core'): ?>
+                <li><a href="#" data-page="cohorts_management" class="<?php echo ($currentPage == 'cohorts_management') ? 'active' : ''; ?>">Cohorts Management</a></li>
+            <!-- Options for DSIOG -->
+            <?php elseif ($userRole == 'DSIOG'): ?>
+                <li>
+                    <a href="#" class="dropdown-toggle">Cohorts Management</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#" data-page="view_all_cohorts">View All</a></li>
+                        <li><a href="#" data-page="add_cohort">Add Cohort</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#" data-page="DSIOG/termination" class="<?php echo ($currentPage == 'termination') ? 'active' : ''; ?>">Termination</a>
+                </li>
+            <?php endif; ?>
+            <!-- Options for DSIOG and club_core -->
+            <?php if ($userRole == 'DSIOG' || $userRole == 'club_core'): ?>
                 <li>
                     <a href="#" class="dropdown-toggle">Projects</a>
                     <ul class="dropdown-menu">
@@ -46,8 +74,6 @@ if (isset($_SESSION['role'])) {
                         <li><a href="#" data-page="DSIOG/all_projects" class="<?php echo ($currentPage == 'all_projects') ? 'active' : ''; ?>">All Projects</a></li>
                     </ul>
                 </li>
-
-                <!-- Events Dropdown -->
                 <li>
                     <a href="#" class="dropdown-toggle">Events</a>
                     <ul class="dropdown-menu">
@@ -57,17 +83,16 @@ if (isset($_SESSION['role'])) {
                         <li><a href="#" data-page="DSIOG/my_events" class="<?php echo ($currentPage == 'my_events') ? 'active' : ''; ?>">My Events</a></li>
                     </ul>
                 </li>
-
-                <!-- Reports Dropdown -->
                 <li>
-                    <a href="#" class="dropdown-toggle">Reports</a>
+                    <a href="#" class="dropdown-toggle">Docs</a>
                     <ul class="dropdown-menu">
                         <li><a href="#" data-page="DSIOG/previous_reports" class="<?php echo ($currentPage == 'previous_reports') ? 'active' : ''; ?>">Previous Reports</a></li>
+                        <li><a href="#" data-page="DSIOG/overall" class="<?php echo ($currentPage == 'overall') ? 'active' : ''; ?>">Overall</a></li>
+                        <li><a href="#" data-page="DSIOG/letters" class="<?php echo ($currentPage == 'letters') ? 'active' : ''; ?>">Letters</a></li>
+                        <li><a href="#" data-page="DSIOG/circulars" class="<?php echo ($currentPage == 'circulars') ? 'active' : ''; ?>">Circulars</a></li>
                         <li><a href="#" data-page="DSIOG/new_report" class="<?php echo ($currentPage == 'new_report') ? 'active' : ''; ?>">New Report</a></li>
                     </ul>
                 </li>
-
-                <!-- Feedback Dropdown -->
                 <li>
                     <a href="#" class="dropdown-toggle">Feedback</a>
                     <ul class="dropdown-menu">
@@ -75,20 +100,29 @@ if (isset($_SESSION['role'])) {
                         <li><a href="#" data-page="DSIOG/create_feedback" class="<?php echo ($currentPage == 'create_feedback') ? 'active' : ''; ?>">Create Feedback</a></li>
                     </ul>
                 </li>
-
-                <!-- Only for DSIOG, exclude for club_core -->
+                <li>
+                    <a href="#" class="dropdown-toggle">Grievance</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#" data-page="add_ticket">Add Ticket</a></li>
+                        <li><a href="#" data-page="my_ticket">My Tickets</a></li>
+                        <li><a href="#" data-page="view_tickets">View All Tickets</a></li>
+                    </ul>
+                </li>
+                <!-- for DSIOG -->
                 <?php if ($userRole == 'DSIOG'): ?>
-                    <li><a href="#" data-page="DSIOG/termination" class="<?php echo ($currentPage == 'termination') ? 'active' : ''; ?>">Termination</a></li>
+                    <li>
+                        <a href="#" data-page="DSIOG/termination" class="<?php echo ($currentPage == 'termination') ? 'active' : ''; ?>">Termination</a>
+                    </li>
                 <?php endif; ?>
-
             <?php endif; ?>
+            <!-- common for all -->
             <li><a href="#" data-page="profile" class="<?php echo ($currentPage == 'profile') ? 'active' : ''; ?>">Profile</a></li>
-            <li><a href="<?php echo BASE_URL; ?>logout.php">Logout</a></li>
         </ul>
     </div>
 </aside>
+
 <script>
-       document.querySelectorAll('.dropdown-toggle').forEach(function(toggle) {
+    document.querySelectorAll('.dropdown-toggle').forEach(function(toggle) {
         toggle.addEventListener('click', function(e) {
             e.preventDefault();
             const dropdownMenu = this.nextElementSibling;
