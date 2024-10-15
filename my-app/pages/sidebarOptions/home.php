@@ -21,11 +21,8 @@ if ($id_number) {
     $stmt->close();
 }
 ?>
-<!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard | Home</title>
     <link rel="stylesheet" href="/pages/sidebarOptions/home.css">
 </head>
@@ -42,6 +39,7 @@ if ($id_number) {
                     <div class="progress-container">
                         <div class="progress" style="width: 80%;"></div>
                     </div>
+                    
                 </div>
                 <div class="main-box">
                     <p>Number of Sessions: 50+</p>
