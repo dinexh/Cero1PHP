@@ -66,66 +66,85 @@
 .gre-container-table tr:nth-child(even) {
     background-color: #f9f9f9; /* Alternate row color for readability */
 }
-
-.add-grievance-form {
+.gre-container-form{
     width: 100%;
     display: flex;
-    flex-wrap: wrap; /* Allow wrapping for smaller screens */
-    justify-content: space-between; /* Space out elements evenly */
-    gap: 1.5rem; /* Gap between form elements */
-    margin: 1.5rem 0; /* Margin above and below the form */
+    justify-content: center;
+    align-items: center;
 }
-
+.add-grievance-form {
+    width: 90%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 1.5rem;
+    padding: 1rem;
+}
 .add-grievance-form label {
-    font-size: 1.1rem; /* Slightly larger text for labels */
-    color: #333; /* Dark gray for better contrast */
-    width: 25%; /* Fixed width for labels to keep consistency */
-    margin-bottom: 0.5rem; /* Space below labels */
+    font-size: 1.1rem; 
+    color: black; 
+    width: 25%; 
+    margin-bottom: 0.5rem; 
 }
-
 .add-grievance-form input,
 .add-grievance-form select,
 .add-grievance-form textarea {
-    padding: 0.75rem; /* Padding inside inputs for comfort */
-    border: 1px solid #ccc; /* Light gray border */
-    border-radius: 0.25rem; /* Rounded corners for inputs */
-    font-size: 1rem; /* Standard font size */
-    width: 70%; /* Wider inputs */
+    padding: 0.7rem;
+    border: 1px solid #ccc; 
+    border-radius: 0.25rem;
+    font-size: 1rem; 
+    width: 70%; 
 }
-
 .add-grievance-form textarea {
-    height: 120px; /* Set height for text areas */
-    resize: vertical; /* Allow vertical resizing */
+    height: 120px;
+    resize: vertical;
 }
-
+.form-button{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 .add-grievance-form button {
-    padding: 0.75rem; /* Button padding */
-    background-color: black; /* Black background for buttons */
-    color: white; /* White text for contrast */
-    border: none; /* No border */
-    border-radius: 0.25rem; /* Rounded corners */
-    font-size: 1rem; /* Standard font size */
-    cursor: pointer; /* Pointer cursor on hover */
-    width: 100%; /* Full width for buttons */
-    max-width: 200px; /* Max width for buttons */
-    align-self: flex-start; /* Align buttons to the start */
+    padding: 0.4rem;
+    background-color: black; 
+    border-radius: 0.25rem; 
+    font-size: 1rem; 
+    cursor: pointer; 
+    width: 20%; 
+    color: white;
+    border: none;
+    align-self: flex-start;
 }
-
 .add-grievance-form button:hover {
-    background-color: grey; /* Hover effect for buttons */
+    color: black;
+    transition: 0.3s ease;
+    background-color: grey; 
 }
-
-.success, .error {
-    text-align: center; /* Center text for messages */
-    font-size: 1rem; /* Standard font size for messages */
-    width: 100%; /* Messages span the entire width */
-    margin-top: 1rem; /* Margin on top for separation */
+.toast {
+    visibility: hidden;
+    min-width: 250px;
+    margin-left: -125px;
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    border-radius: 2px;
+    padding: 16px;
+    position: fixed;
+    z-index: 1;
+    left: 50%;
+    bottom: 30px;
+    font-size: 17px;
 }
-
-.success {
-    color: green; /* Green for success messages */
+.toast.show {
+    visibility: visible;
+    animation: fadein 0.5s, fadeout 0.5s 2.5s;
 }
-
-.error {
-    color: red; /* Red for error messages */
+@keyframes fadein {
+    from {bottom: 0; opacity: 0;} 
+    to {bottom: 30px; opacity: 1;}
+}
+@keyframes fadeout {
+    from {bottom: 30px; opacity: 1;} 
+    to {bottom: 0; opacity: 0;}
 }

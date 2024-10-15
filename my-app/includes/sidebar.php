@@ -20,8 +20,8 @@ $name = isset($_SESSION['name']) ? $_SESSION['name'] : 'Guest';
                 <li>
                     <a href="#" class="dropdown-toggle">Events</a>
                     <ul class="dropdown-menu">
+                    <li><a href="#" data-page="myevents">My Events</a></li>
                         <li><a href="#" data-page="register_event">Register Event</a></li>
-                        <li><a href="#" data-page="myevents">My Events</a></li>
                     </ul>
                 </li>
                 <li>
