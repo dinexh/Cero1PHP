@@ -8,6 +8,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $stmt->bind_param("s", $username);
     $stmt->execute();
     $result = $stmt->get_result();
+    // $_SESSION['id_number'] = $user['id_number'];
 
     if ($result->num_rows > 0) {
         $row = $result->fetch_assoc();

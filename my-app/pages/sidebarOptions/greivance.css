@@ -33,38 +33,34 @@
 }
 .gre-container-table table {
     width: 100%;
-    border-collapse: collapse; /* Remove spaces between table cells */
+    border-collapse: collapse; 
     margin-top: 1rem;
 }
 .gre-container-table th, .gre-container-table td {
     padding: 1rem;
     text-align: left;
-    border-bottom: 1px solid #ddd; /* Subtle line between rows */
-    color: black; /* Black text for table */
+    border-bottom: 1px solid #ddd;
+    color: black;
     border: 2px solid black;
 }
 .gre-container-table th {
-    background-color: black; /* Yellowish color for headers */
-    color: white; /* Black text for headers */
+    background-color: black; 
+    color: white;
     font-weight: bold;
     border: 2px solid black;
 }
-
 .gre-container-table tr:hover {
-    background-color: #f5f5f5; /* Light hover effect on table rows */
+    background-color: #f5f5f5; 
 }
-
 .gre-container-table td {
-    background-color: #ffffff; /* White background for data cells */
+    background-color: #ffffff; 
 }
-
 .gre-container-table td:last-child, 
 .gre-container-table th:last-child {
-    text-align: center; /* Center align the last column */
+    text-align: center; 
 }
-
 .gre-container-table tr:nth-child(even) {
-    background-color: #f9f9f9; /* Alternate row color for readability */
+    background-color: #f9f9f9; 
 }
 .gre-container-form{
     width: 100%;
@@ -72,7 +68,7 @@
     justify-content: center;
     align-items: center;
 }
-.add-grievance-form {
+.gre-grievance-form {
     width: 90%;
     display: flex;
     flex-wrap: wrap;
@@ -80,22 +76,22 @@
     gap: 1.5rem;
     padding: 1rem;
 }
-.add-grievance-form label {
+.gre-grievance-form label {
     font-size: 1.1rem; 
     color: black; 
     width: 25%; 
     margin-bottom: 0.5rem; 
 }
-.add-grievance-form input,
-.add-grievance-form select,
-.add-grievance-form textarea {
+.gre-grievance-form input,
+.gre-grievance-form select,
+.gre-grievance-form textarea {
     padding: 0.7rem;
     border: 1px solid #ccc; 
     border-radius: 0.25rem;
     font-size: 1rem; 
     width: 70%; 
 }
-.add-grievance-form textarea {
+.gre-grievance-form textarea {
     height: 120px;
     resize: vertical;
 }
@@ -105,7 +101,7 @@
     justify-content: center;
     align-items: center;
 }
-.add-grievance-form button {
+.gre-grievance-form button {
     padding: 0.4rem;
     background-color: black; 
     border-radius: 0.25rem; 
@@ -120,31 +116,4 @@
     color: black;
     transition: 0.3s ease;
     background-color: grey; 
-}
-.toast {
-    visibility: hidden;
-    min-width: 250px;
-    margin-left: -125px;
-    background-color: #333;
-    color: #fff;
-    text-align: center;
-    border-radius: 2px;
-    padding: 16px;
-    position: fixed;
-    z-index: 1;
-    left: 50%;
-    bottom: 30px;
-    font-size: 17px;
-}
-.toast.show {
-    visibility: visible;
-    animation: fadein 0.5s, fadeout 0.5s 2.5s;
-}
-@keyframes fadein {
-    from {bottom: 0; opacity: 0;} 
-    to {bottom: 30px; opacity: 1;}
-}
-@keyframes fadeout {
-    from {bottom: 30px; opacity: 1;} 
-    to {bottom: 0; opacity: 0;}
 }

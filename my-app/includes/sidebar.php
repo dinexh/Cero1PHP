@@ -43,8 +43,8 @@ $name = isset($_SESSION['name']) ? $_SESSION['name'] : 'Guest';
                 <li>
                     <a href="#" class="dropdown-toggle">Grievance</a>
                     <ul class="dropdown-menu">
-                        <li><a href="#" data-page="my_grievence">My Grievance</a></li>
-                        <li><a href="#" data-page="add_grievence">Add Grievence</a></li>
+                        <li><a href="#" data-page="my_grievance">My Grievance</a></li>
+                        <li><a href="#" data-page="add_grievance">Add Grievence</a></li>
                     </ul>
                 </li>
             <!-- Options for club_core -->
@@ -103,9 +103,9 @@ $name = isset($_SESSION['name']) ? $_SESSION['name'] : 'Guest';
                 <li>
                     <a href="#" class="dropdown-toggle">Grievance</a>
                     <ul class="dropdown-menu">
-                        <li><a href="#" data-page="add_ticket">Add Ticket</a></li>
-                        <li><a href="#" data-page="my_ticket">My Tickets</a></li>
-                        <li><a href="#" data-page="view_tickets">View All Tickets</a></li>
+                        <li><a href="#" data-page="view_gre_stats">View Grievance Stats</a></li>
+                        <li><a href="#" data-page="add_grievance">Add Grievance</a></li>
+                        <li><a href="#" data-page="my_grievance">My Grievance</a></li>
                     </ul>
                 </li>
                 <!-- for DSIOG -->
