@@ -27,7 +27,7 @@
     justify-content: center;
     align-items: center;
     padding: 20px; /* Add padding */
-    background-color: #007bff; /* Blue background for heading */
+    background-color:black; /* Blue background for heading */
     color: white; /* White text */
     border-radius: 10px 10px 0 0; /* Rounded corners on top */
 }

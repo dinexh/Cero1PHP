@@ -168,3 +168,129 @@
 .view-container-table button:hover {
     background-color: #333333; /* Darker grey on hover */
 }
+.add-container {
+    width: 100%;
+    height: 100%;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.add-container-in {
+    padding: 2rem; 
+    width: 100%;
+    height: 95%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.add-container-in-heading{
+    width: 100%;
+    text-align: center;
+}
+.add-container-in-heading h1 {
+    font-size: 2rem; /* Increased heading size for emphasis */
+    font-weight: 600; /* Bolder font for heading */
+    margin-bottom: 1.5rem; /* Space below the heading */
+}
+.add-container-main {
+    width: 90%;
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+
+}
+.add-container-main-one,
+.add-container-main-two {
+    flex: 1; /* Equal width for both sections */
+    padding: 2rem; /* Padding for the form section */
+    border-radius: 0.5rem; /* Rounded corners */
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.3); /* Light shadow for depth */
+}
+
+.add-container-main-one form {
+    display: flex;
+    flex-direction: column;
+}
+.add-container-main-one label {
+    margin-bottom: 0.5rem; /* Space below labels */
+    font-weight: bold; /* Bold labels */
+    color: black;
+}
+
+.add-container-main-one input,
+.add-container-main-one select,
+.add-container-main-one button {
+    margin-bottom: 1.5rem; /* Space below inputs/selects/buttons */
+    padding: 1rem; /* Padding for inputs/selects/buttons */
+    border: 1px solid #444; /* Darker border */
+    border-radius: 0.3rem; /* Slightly rounded corners */
+    font-size: 1rem; /* Font size for inputs/selects/buttons */
+    color: black;
+}
+
+.add-container-main-one button {
+    background-color: black; /* Button background */
+    color: white; /* Button text color */
+    border: none; /* Remove default border */
+    cursor: pointer; /* Pointer cursor on hover */
+    transition: background-color 0.3s ease; /* Smooth background transition */
+    height: 3rem; /* Fixed height for the button */
+}
+.add-container-main-two {
+    padding: 2rem; /* Padding for existing cohorts */
+    border-radius: 0.5rem; /* Rounded corners */
+
+}
+
+.add-container-main-two h2 {
+    margin-top: 0; /* Remove margin on top */
+    color: black;
+}
+
+.add-container-main-two ul {
+    list-style-type: none; /* Remove default list styles */
+    padding: 0; /* Remove default padding */
+}
+
+.add-container-main-two li {
+    padding: 1rem 0; /* Space for list items */
+    border-bottom: 1px solid #666; /* Bottom border for items */
+}
+
+.add-container-main-two li:last-child {
+    border: none; /* Remove last border */
+}
+
+.toast {
+    visibility: hidden; /* Hidden by default */
+    min-width: 15rem; /* Set a minimum width */
+    margin-left: -7.5rem; /* Center the toast */
+    background-color: #333; /* Dark background */
+    color: #ffffff; /* White text */
+    text-align: center; /* Centered text */
+    border-radius: 0.3rem; /* Rounded corners */
+    padding: 1rem; /* Padding */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 50%; /* Center the toast */
+    bottom: 3rem; /* 3rem from the bottom */
+    font-size: 1rem; /* Font size */
+}
+
+.toast.show {
+    visibility: visible; /* Show the toast */
+    animation: fadein 0.5s, fadeout 0.5s 2.5s; /* Fade in and out */
+}
+
+@keyframes fadein {
+    from { bottom: 0; opacity: 0; } /* Start with opacity 0 */
+    to { bottom: 3rem; opacity: 1; } /* End with opacity 1 */
+}
+
+@keyframes fadeout {
+    from { bottom: 3rem; opacity: 1; } /* Start fully visible */
+    to { bottom: 0; opacity: 0; } /* End with opacity 0 */
+}
