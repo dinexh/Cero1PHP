@@ -57,6 +57,7 @@ $name = isset($_SESSION['name']) ? $_SESSION['name'] : 'Guest';
                     <ul class="dropdown-menu">
                         <li><a href="#" data-page="view_all_cohorts">View All</a></li>
                         <li><a href="#" data-page="add_cohort">Add Cohort</a></li>
+                        <li><a href="#" data-page="add_users">Add users</a></li>
                     </ul>
                 </li>
                 <li>
