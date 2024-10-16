@@ -105,7 +105,7 @@ $name = isset($_SESSION['name']) ? $_SESSION['name'] : 'Guest';
                 <li>
                     <a href="#" class="dropdown-toggle">Grievance</a>
                     <ul class="dropdown-menu">
-                        <li><a href="#" data-page="view_gre_stats">View Grievance Stats</a></li>
+                        <li><a href="#" data-page="grievance_stats">View Grievance Stats</a></li>
                         <li><a href="#" data-page="add_grievance">Add Grievance</a></li>
                         <li><a href="#" data-page="my_grievance">My Grievance</a></li>
                     </ul>

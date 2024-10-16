@@ -6,7 +6,7 @@ if (!isset($_SESSION['id_number'])) {
     exit();
 }
 $id_number = mysqli_real_escape_string($conn, $_SESSION['id_number']);
-$sql = "SELECT user_id, date_reported, domain, information FROM grievances WHERE user_id = '$id_number' ORDER BY date_reported DESC";
+$sql = "SELECT user_id, date_reported, domain, information, ongoing, result FROM grievances WHERE user_id = '$id_number' ORDER BY date_reported DESC";
 $result = $conn->query($sql);
 ?>
 <!DOCTYPE html>
@@ -31,6 +31,8 @@ $result = $conn->query($sql);
                             <th>Date Reported</th>
                             <th>Domain</th>
                             <th>Information</th>
+                            <th>Date Reported</th>
+                            <th>result</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -42,6 +44,8 @@ $result = $conn->query($sql);
                                 echo "<td>" . htmlspecialchars($row['date_reported']) . "</td>";
                                 echo "<td>" . htmlspecialchars($row['domain']) . "</td>";
                                 echo "<td>" . htmlspecialchars($row['information']) . "</td>";
+                                echo "<td>" . htmlspecialchars($row['date_reported']) . "</td>";
+                                echo "<td>" . htmlspecialchars($row['result']) . "</td>";
                                 echo "</tr>";
                             }
                         } else {

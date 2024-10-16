@@ -2,7 +2,7 @@ document.querySelectorAll('.sidebar a').forEach(link => {
     link.addEventListener('click', function(e) {
         e.preventDefault(); // Prevent page reload
         const page = this.getAttribute('data-page');
-        console.log(`Fetching content from: ${baseURL}pages/sidebarOptions/${page}.php`);
+        // console.log(`Fetching content from: ${baseURL}pages/sidebarOptions/${page}.php`);
 
         // Load content dynamically using fetch
         fetch(`${baseURL}pages/sidebarOptions/${page}.php`)
@@ -14,7 +14,7 @@ document.querySelectorAll('.sidebar a').forEach(link => {
                 return response.text();
             })
             .then(data => {
-                console.log('Fetched content:', data); // Log fetched content
+                // console.log('Fetched content:', data); // Log fetched content
                 document.querySelector('.dashboard-content').innerHTML = data;
             })
             .catch(error => console.log('Error loading content:', error));

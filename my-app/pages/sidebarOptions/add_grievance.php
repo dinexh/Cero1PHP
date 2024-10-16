@@ -39,7 +39,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <h1>Submit a Grievance</h1>
             </div>
             <div class="gre-container-form" >
-                <form id="grievanceForm" class="gre-grievance-form " method="POST" action="/pages/sidebarOptions/add_grievence.php">
+                <form id="grievanceForm" class="gre-grievance-form " method="POST" action="/pages/sidebarOptions/add_grievance.php">
                     <label for="domain">Domain:</label>
                     <input type="text" name="domain" required>
                     <br>
