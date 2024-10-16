@@ -97,7 +97,9 @@ $name = isset($_SESSION['name']) ? $_SESSION['name'] : 'Guest';
                     <a href="#" class="dropdown-toggle">Feedback</a>
                     <ul class="dropdown-menu">
                         <li><a href="#" data-page="feedback_stats" class="<?php echo ($currentPage == 'feedback_stats') ? 'active' : ''; ?>">Show All Feedback Stats</a></li>
-                        <li><a href="#" data-page="create_feedback" class="<?php echo ($currentPage == 'create_feedback') ? 'active' : ''; ?>">Create Feedback</a></li>
+                        <li><a href="#" data-page="add_feedback">Add Feedback</a></li>
+                        <li><a href="#" data-page="my_feedback">My Feedback</a></li>
+                        <!-- <li><a href="#" data-page="create_feedback" class="<?php echo ($currentPage == 'create_feedback') ? 'active' : ''; ?>">Create Feedback</a></li> -->
                     </ul>
                 </li>
                 <li>

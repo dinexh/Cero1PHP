@@ -107,7 +107,7 @@
 
 .gre-grievance-form input:focus,
 .gre-grievance-form textarea:focus {
-    border-color: #007bff; /* Blue border on focus */
+    border-color: blue;
     box-shadow: 0 0 8px rgba(0, 123, 255, 0.1);
     outline: none;
 }
