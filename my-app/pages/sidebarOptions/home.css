@@ -58,10 +58,12 @@
     margin: 10px;
     padding: 20px;
     border-radius: 5px;
-    flex: 1 1 200px; 
+    flex:1rem;
+    min-height: 20vh;
     box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow for boxes */
     transition: transform 0.2s; /* Add transition effect */
 }
+
 
 .main-box:hover {
     transform: translateY(-5px); /* Slight lift on hover */

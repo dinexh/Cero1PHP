@@ -38,6 +38,7 @@ if ($id_number) {
                     <p>Number of Projects: 8+</p>
                     <div class="progress-container">
                         <div class="progress" style="width: 80%;"></div>
+                        
                     </div>
                     
                 </div>
