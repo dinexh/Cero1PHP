@@ -1,14 +1,10 @@
 <?php
-include_once(dirname(__DIR__, 2) . '/config.php'); // Include your database configuration
-header('Content-Type: text/html; charset=utf-8'); // Set content type
+include_once(dirname(__DIR__, 2) . '/config.php'); 
 require_once '../../config.php';
 
-// Initialize variables
 $id_number = $name = $mail = $cohort = $message_code = $new_password = $confirm_password = '';
-$step = 1; // Initial step
+$step = 1; 
 $success = $error = '';
-
-// Handle form submission
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (isset($_POST['verify_user'])) {
         // Step 1: User verification
@@ -91,7 +87,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <div class="forgot-container">
         <div class="forgot-container-in">
             <div class="forgot-container-heading">
-                <h2 class="heading-title">Forgot Password</h2>
+                <h1>Zero<span>One</span> Portal</h1>
+                <h2>Forgot Password</h2>
             </div>
             <div class="forgot-container-indication">
                 <?php if ($success): ?>
