@@ -1,21 +1,21 @@
 <?php
 session_start();
-require_once('../../db.php'); 
+require_once('../../db.php');
 
-// Handle role change form submission
+// Handle role change using POST request
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['id_number'], $_POST['new_role'])) {
     $id_number = mysqli_real_escape_string($conn, $_POST['id_number']);
     $new_role = mysqli_real_escape_string($conn, $_POST['new_role']);
 
     // Update the user's role in the database
     $update_sql = "UPDATE users SET role = '$new_role' WHERE id_number = '$id_number'";
-    
+
     if (mysqli_query($conn, $update_sql)) {
-        // Success message (optional)
-        $message = "Role updated successfully!";
+        header("Location: view_all_cohorts.php?status=success&message=Role updated successfully!");
+        exit();
     } else {
-        // Error message
-        $message = "Error updating role: " . mysqli_error($conn);
+        header("Location: view_all_cohorts.php?status=error&message=Error updating role: " . mysqli_error($conn));
+        exit();
     }
 }
 
@@ -23,12 +23,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['id_number'], $_POST['
 $sql = "SELECT id_number, name, mail, cohort, role FROM users";
 $result = mysqli_query($conn, $sql);
 
-// Check if the query was successful
 if (!$result) {
     die("Query failed: " . mysqli_error($conn));
 }
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -44,13 +42,6 @@ if (!$result) {
                 <h2>All Cohorts</h2>
             </div>
 
-            <!-- Optional success/error message display -->
-            <?php if (isset($message)) { ?>
-                <div class="message">
-                    <?php echo htmlspecialchars($message); ?>
-                </div>
-            <?php } ?>
-
             <div class="view-container-table">
                 <table>
                     <thead>
@@ -64,9 +55,7 @@ if (!$result) {
                         </tr>
                     </thead>
                     <tbody>
-                        <?php 
-                        // Loop through the results and display them
-                        while ($row = $result->fetch_assoc()) { ?>
+                        <?php while ($row = $result->fetch_assoc()) { ?>
                             <tr>
                                 <td><?php echo htmlspecialchars($row['id_number']); ?></td>
                                 <td><?php echo htmlspecialchars($row['name']); ?></td>
@@ -74,8 +63,7 @@ if (!$result) {
                                 <td><?php echo htmlspecialchars($row['cohort']); ?></td>
                                 <td><?php echo htmlspecialchars($row['role']); ?></td>
                                 <td>
-                                    <!-- Role Change Form -->
-                                    <form method="POST" action="/pages/sidebarOptions/view_all_cohorts.php">
+                                    <form method="POST" action="view_all_cohorts.php">
                                         <input type="hidden" name="id_number" value="<?php echo htmlspecialchars($row['id_number']); ?>">
                                         <select name="new_role">
                                             <option value="club_member" <?php echo ($row['role'] == 'club_member') ? 'selected' : ''; ?>>Club Member</option>
@@ -92,5 +80,26 @@ if (!$result) {
             </div>
         </div>
     </div>
+
+    <div id="toaster" class="toaster"></div>
+
+    <script>
+        // Display toaster message if status and message are present in the URL
+        const params = new URLSearchParams(window.location.search);
+        const status = params.get('status');
+        const message = params.get('message');
+
+        if (status && message) {
+            const toaster = document.getElementById('toaster');
+            toaster.innerText = message;
+            toaster.style.display = 'block';
+            toaster.style.backgroundColor = status === 'success' ? 'green' : 'red';
+
+            // Automatically hide the toaster after 3 seconds
+            setTimeout(() => {
+                toaster.style.display = 'none';
+            }, 3000);
+        }
+    </script>
 </body>
 </html>
