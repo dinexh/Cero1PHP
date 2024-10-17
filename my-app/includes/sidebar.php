@@ -60,9 +60,6 @@ $name = isset($_SESSION['name']) ? $_SESSION['name'] : 'Guest';
                         <li><a href="#" data-page="add_users">Add users</a></li>
                     </ul>
                 </li>
-                <li>
-                    <a href="#" data-page="termination" class="<?php echo ($currentPage == 'termination') ? 'active' : ''; ?>">Termination</a>
-                </li>
             <?php endif; ?>
             <!-- Options for DSIOG and club_core -->
             <?php if ($userRole == 'DSIOG' || $userRole == 'club_core'): ?>

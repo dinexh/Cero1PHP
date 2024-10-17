@@ -31,7 +31,6 @@ if ($id_number) {
         <div class="home-container-in">
             <div class="home-container-in-heading">
                 <h1>Greetings, <?php echo htmlspecialchars($name); ?>!</h1>
-                <p>Welcome to your member dashboard.</p>
             </div>
             <div class="home-container-in-main">
                 <div class="main-box">

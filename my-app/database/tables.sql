@@ -15,6 +15,7 @@ CREATE TABLE users (
     mail VARCHAR(255) NOT NULL UNIQUE,
     cohort_id INT,
     role ENUM('admin', 'member', 'DSIOG', 'core') NOT NULL,
+    message_code VARCHAR(255) NOT NULL,
     FOREIGN KEY (cohort_id) REFERENCES cohorts(id) ON DELETE SET NULL
 );
 
