@@ -11,10 +11,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['id_number'], $_POST['
     $update_sql = "UPDATE users SET role = '$new_role' WHERE id_number = '$id_number'";
 
     if (mysqli_query($conn, $update_sql)) {
-        header("Location: view_all_cohorts.php?status=success&message=Role updated successfully!");
+        header("Location: /pages/sidebarOptions/view_all_cohorts.php?status=success&message=Role updated successfully!");
         exit();
     } else {
-        header("Location: view_all_cohorts.php?status=error&message=Error updating role: " . mysqli_error($conn));
+        header("Location: /pages/sidebarOptions/view_all_cohorts.php?status=error&message=Error updating role: " . mysqli_error($conn));
         exit();
     }
 }
@@ -27,6 +27,7 @@ if (!$result) {
     die("Query failed: " . mysqli_error($conn));
 }
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -63,7 +64,7 @@ if (!$result) {
                                 <td><?php echo htmlspecialchars($row['cohort']); ?></td>
                                 <td><?php echo htmlspecialchars($row['role']); ?></td>
                                 <td>
-                                    <form method="POST" action="view_all_cohorts.php">
+                                    <form method="POST" action="/pages/sidebarOptions/view_all_cohorts.php">
                                         <input type="hidden" name="id_number" value="<?php echo htmlspecialchars($row['id_number']); ?>">
                                         <select name="new_role">
                                             <option value="club_member" <?php echo ($row['role'] == 'club_member') ? 'selected' : ''; ?>>Club Member</option>
