@@ -1,0 +1,20 @@
+.loader {
+    display: none; /* Hide by default */
+    margin-top: 0.625rem; /* 10px */
+    width: 1.875rem; /* 30px */
+    height: 1.875rem; /* 30px */
+    border: 0.25rem solid #f3f3f3; /* 4px */
+    border-radius: 50%;
+    border-top: 0.25rem solid #007bff; /* 4px */
+    animation: spin 1s linear infinite;
+}
+
+.loader.show {
+    display: inline-block; /* Show when 'show' prop is true */
+}
+
+/* Loader animation */
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
