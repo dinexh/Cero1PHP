@@ -11,15 +11,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['id_number'], $_POST['
     $update_sql = "UPDATE users SET role = '$new_role' WHERE id_number = '$id_number'";
 
     if (mysqli_query($conn, $update_sql)) {
-        header("Location: /pages/sidebarOptions/view_all_cohorts.php?status=success&message=Role updated successfully!");
+        header("Location: /pages/sidebarOptions/success.php");
         exit();
     } else {
-        header("Location: /pages/sidebarOptions/view_all_cohorts.php?status=error&message=Error updating role: " . mysqli_error($conn));
+        header("Location: /pages/sidebarOptions/error.php");
         exit();
     }
 }
-
-// Fetch all cohorts from the database
 $sql = "SELECT id_number, name, mail, cohort, role FROM users";
 $result = mysqli_query($conn, $sql);
 
@@ -27,13 +25,8 @@ if (!$result) {
     die("Query failed: " . mysqli_error($conn));
 }
 ?>
-
-<!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>View All Cohorts</title>
     <link rel="stylesheet" href="/pages/sidebarOptions/options.css">
 </head>
 <body>
@@ -81,26 +74,5 @@ if (!$result) {
             </div>
         </div>
     </div>
-
-    <div id="toaster" class="toaster"></div>
-
-    <script>
-        // Display toaster message if status and message are present in the URL
-        const params = new URLSearchParams(window.location.search);
-        const status = params.get('status');
-        const message = params.get('message');
-
-        if (status && message) {
-            const toaster = document.getElementById('toaster');
-            toaster.innerText = message;
-            toaster.style.display = 'block';
-            toaster.style.backgroundColor = status === 'success' ? 'green' : 'red';
-
-            // Automatically hide the toaster after 3 seconds
-            setTimeout(() => {
-                toaster.style.display = 'none';
-            }, 3000);
-        }
-    </script>
 </body>
 </html>

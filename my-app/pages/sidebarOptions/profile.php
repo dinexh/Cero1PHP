@@ -25,6 +25,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $new_password = $_POST['new_password'];
     $confirm_password = $_POST['confirm_password'];
 
+    // Log that form data was received
+    echo "<script>console.log('Form data received');</script>";
+
     $sql = "SELECT password FROM users WHERE id_number = ?";
     $stmt = $conn->prepare($sql);
     $stmt->bind_param("s", $id_number);
@@ -33,8 +36,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $result = $stmt->get_result();
         $user = $result->fetch_assoc();
 
+        // Log that the user was found
+        echo "<script>console.log('User found');</script>";
+
         // Verify old password
         if (password_verify($old_password, $user['password'])) {
+            echo "<script>console.log('Old password is correct');</script>";
+
             // Check if new password and confirm password match
             if ($new_password === $confirm_password) {
                 $hashed_new_password = password_hash($new_password, PASSWORD_DEFAULT);
@@ -43,26 +51,32 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 $update_stmt->bind_param("ss", $hashed_new_password, $id_number);
 
                 if ($update_stmt->execute()) {
+                    echo "<script>console.log('Password updated successfully');</script>";
                     $successMessage = "Password updated successfully.";
+                    header("Location: /../../index.php");
                 } else {
+                    echo "<script>console.log('Error updating password');</script>";
                     $message = "Error updating password.";
                 }
                 $update_stmt->close();
             } else {
+                echo "<script>console.log('New password and confirm password do not match');</script>";
                 $message = "New password and confirmation do not match.";
             }
         } else {
+            echo "<script>console.log('Old password is incorrect');</script>";
             $message = "Old password is incorrect.";
         }
     } else {
-        $message = "Error fetching user details.";
+        echo "<script>console.log('Error fetching user password');</script>";
+        $message = "Error fetching user password.";
     }
 
     $stmt->close();
 }
 
 // Fetch user details for display
-$sql = "SELECT id_number, name, mail, role , cohort FROM users WHERE id_number = ?";
+$sql = "SELECT id_number, name, mail, role, cohort FROM users WHERE id_number = ?";
 $stmt = $conn->prepare($sql);
 $stmt->bind_param("s", $id_number);
 
@@ -126,7 +140,7 @@ $conn->close();
                     <h1>Edit Password</h1>
                 </div>
                 <div class="profile-edit-options">
-                    <form action="" method="POST">
+                        <form action="/pages/sidebarOptions/profile.php" method="POST">
                         <label for="old_password">Old Password:</label>
                         <input type="password" id="old_password" name="old_password" required>
 
