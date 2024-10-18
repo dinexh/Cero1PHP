@@ -1,82 +1,61 @@
--- 1. Cohorts Table
-CREATE TABLE cohorts (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    name VARCHAR(255) NOT NULL,
-    batch VARCHAR(100) NOT NULL,
-    info TEXT,
-    number_of_people INT DEFAULT 0
-);
-
--- 2. Users Table
+-- Create the users table
 CREATE TABLE users (
-    id_number VARCHAR(255) PRIMARY KEY,
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    id_number VARCHAR(50) NOT NULL UNIQUE,
     password VARCHAR(255) NOT NULL,
-    name VARCHAR(255) NOT NULL,
-    mail VARCHAR(255) NOT NULL UNIQUE,
-    cohort_id INT,
-    role ENUM('admin', 'member', 'DSIOG', 'core') NOT NULL,
-    message_code VARCHAR(255) NOT NULL,
-    FOREIGN KEY (cohort_id) REFERENCES cohorts(id) ON DELETE SET NULL
+    mail VARCHAR(100) NOT NULL UNIQUE,
+    cohort VARCHAR(50) NOT NULL,
+    role ENUM('member', 'core', 'DSIOG') NOT NULL,
+    message VARCHAR(255) DEFAULT NULL,
+    status ENUM('active', 'inactive') NOT NULL DEFAULT 'active',
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 );
 
--- 3. Feedback Table
+-- Create the grievances table
+CREATE TABLE grievances (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    user_id_number VARCHAR(50),
+    grievance_text TEXT NOT NULL,
+    status ENUM('pending', 'resolved', 'dismissed') NOT NULL DEFAULT 'pending',
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (user_id_number) REFERENCES users(id_number)
+);
+
+-- Create the feedback table
 CREATE TABLE feedback (
     id INT AUTO_INCREMENT PRIMARY KEY,
-    user_id VARCHAR(255) NOT NULL,
-    domain VARCHAR(255) NOT NULL,
-    mentorship_rating INT CHECK (mentorship_rating BETWEEN 1 AND 5),
-    concept_rating INT CHECK (concept_rating BETWEEN 1 AND 5),
-    feedback_text TEXT,
-    FOREIGN KEY (user_id) REFERENCES users(id_number) ON DELETE CASCADE
+    user_id_number VARCHAR(50),
+    feedback_text TEXT NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (user_id_number) REFERENCES users(id_number)
 );
 
-CREATE TABLE IF NOT EXISTS grievances (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    user_id VARCHAR(255) NOT NULL,
-    domain VARCHAR(255) NOT NULL,
-    information TEXT NOT NULL,
-    date_reported DATETIME DEFAULT CURRENT_TIMESTAMP,
-    ongoing TINYINT DEFAULT 1,
-    result VARCHAR(255) DEFAULT 'Pending'
-);
-
--- 5. Projects Table
+-- Create the projects table
 CREATE TABLE projects (
     id INT AUTO_INCREMENT PRIMARY KEY,
-    project_name VARCHAR(255) NOT NULL,
-    tech_stack VARCHAR(255),
-    github_link VARCHAR(255),
-    deployed_link VARCHAR(255),
-    created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
-    updated_at DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+    user_id_number VARCHAR(50),
+    project_name VARCHAR(100) NOT NULL,
+    description TEXT,
+    status ENUM('active', 'completed', 'archived') NOT NULL DEFAULT 'active',
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (user_id_number) REFERENCES users(id_number)
 );
 
--- 6. Project Members Table (Junction Table)
-CREATE TABLE project_members (
-    project_id INT NOT NULL,
-    user_id VARCHAR(255) NOT NULL,
-    role ENUM('member', 'lead') DEFAULT 'member',
-    PRIMARY KEY (project_id, user_id),
-    FOREIGN KEY (project_id) REFERENCES projects(id) ON DELETE CASCADE,
-    FOREIGN KEY (user_id) REFERENCES users(id_number) ON DELETE CASCADE
-);
-
--- 7. Events Table
+-- Create the events table
 CREATE TABLE events (
     id INT AUTO_INCREMENT PRIMARY KEY,
-    event_name VARCHAR(255) NOT NULL,
+    user_id_number VARCHAR(50),
+    event_name VARCHAR(100) NOT NULL,
     event_date DATETIME NOT NULL,
-    description TEXT,
-    created_by VARCHAR(255),
-    FOREIGN KEY (created_by) REFERENCES users(id_number) ON DELETE SET NULL
+    status ENUM('upcoming', 'completed', 'cancelled') NOT NULL DEFAULT 'upcoming',
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (user_id_number) REFERENCES users(id_number)
 );
 
--- 8. Attendance Table
-CREATE TABLE attendance (
+-- Create the cohorts table
+CREATE TABLE cohorts (
     id INT AUTO_INCREMENT PRIMARY KEY,
-    event_id INT NOT NULL,
-    user_id VARCHAR(255) NOT NULL,
-    attendance_status ENUM('attended', 'not_attended') DEFAULT 'attended',
-    FOREIGN KEY (event_id) REFERENCES events(id) ON DELETE CASCADE,
-    FOREIGN KEY (user_id) REFERENCES users(id_number) ON DELETE CASCADE
+    cohort_name VARCHAR(50) NOT NULL UNIQUE,
+    number_of_students INT DEFAULT 0
 );
