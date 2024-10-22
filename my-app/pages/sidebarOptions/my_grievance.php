@@ -1,64 +1,71 @@
 <?php
 session_start();
-require_once('../../db.php'); 
+require_once('../../db.php');
+
+$response = array('success' => false, 'message' => '');
+
+// Make sure the user is logged in
 if (!isset($_SESSION['id_number'])) {
-    header("Location: /auth/login.php"); 
+    $response['message'] = 'You must be logged in to view grievances.';
+    echo json_encode($response);
     exit();
 }
+
+// Get the user ID from the session
 $id_number = mysqli_real_escape_string($conn, $_SESSION['id_number']);
-$sql = "SELECT user_id, date_reported, domain, information, ongoing, result FROM grievances WHERE user_id = '$id_number' ORDER BY date_reported DESC";
-$result = $conn->query($sql);
+
+// Update your SQL query
+$sql = "SELECT * FROM grievances WHERE user_id_number = '$id_number'";
+$result = mysqli_query($conn, $sql);
+
+if ($result) {
+    $grievances = mysqli_fetch_all($result, MYSQLI_ASSOC);
+    $response['success'] = true;
+    $response['data'] = $grievances;
+} else {
+    $response['message'] = "Database Error: " . mysqli_error($conn);
+}
+
+// If you want to display the grievances in a table
 ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Grievances</title>
-    <link rel="stylesheet" href="/pages/sidebarOptions/greivance.css"> 
+    <!-- <link rel="stylesheet" href="/pages/sidebarOptions/greivance.css">  -->
+    <link rel="stylesheet" href="/pages/sidebarOptions/my_grievance.css">
+
 </head>
 <body>
-    <div class="gre-container">
-        <div class="gre-container-in">
-            <div class="gre-container-in-heading">
-                <h1>My Grievances</h1>
-            </div>
-            <div class="gre-container-table">
-                <table>
-                    <thead>
+    <div class="grievance-container">
+        <h1>My Grievances</h1>
+        <?php if ($response['success'] && !empty($response['data'])): ?>
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>User ID</th>
+                        <th>Grievance Text</th>
+                        <th>Status</th>
+                        <th>Created At</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php foreach ($response['data'] as $grievance): ?>
                         <tr>
-                            <th>ID Number</th>
-                            <th>Date Reported</th>
-                            <th>Domain</th>
-                            <th>Information</th>
-                            <th>Date Reported</th>
-                            <th>result</th>
+                            <td><?php echo htmlspecialchars($grievance['id']); ?></td>
+                            <td><?php echo htmlspecialchars($grievance['user_id_number']); ?></td>
+                            <td><?php echo htmlspecialchars($grievance['grievance_text']); ?></td>
+                            <td><?php echo htmlspecialchars($grievance['status']); ?></td>
+                            <td><?php echo htmlspecialchars($grievance['created_at']); ?></td>
                         </tr>
-                    </thead>
-                    <tbody>
-                        <?php
-                        if ($result && $result->num_rows > 0) {
-                            while($row = $result->fetch_assoc()) {
-                                echo "<tr>";
-                                echo "<td>" . htmlspecialchars($row['user_id']) . "</td>";
-                                echo "<td>" . htmlspecialchars($row['date_reported']) . "</td>";
-                                echo "<td>" . htmlspecialchars($row['domain']) . "</td>";
-                                echo "<td>" . htmlspecialchars($row['information']) . "</td>";
-                                echo "<td>" . htmlspecialchars($row['date_reported']) . "</td>";
-                                echo "<td>" . htmlspecialchars($row['result']) . "</td>";
-                                echo "</tr>";
-                            }
-                        } else {
-                            echo "<tr><td colspan='4'>No grievances found</td></tr>";
-                        }
-                        ?>
-                    </tbody>
-                </table>
-            </div>
-        </div>
+                    <?php endforeach; ?>
+                </tbody>
+            </table>
+        <?php else: ?>
+            <p>No grievances found.</p>
+        <?php endif; ?>
     </div>
 </body>
 </html>
-<?php
-$conn->close();
-?>

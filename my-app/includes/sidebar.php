@@ -16,7 +16,7 @@ $name = isset($_SESSION['name']) ? $_SESSION['name'] : 'Guest';
             <!-- common options for everyone -->
             <li><a href="#" data-page="home" class="<?php echo ($currentPage == 'home') ? 'active' : ''; ?>">Home</a></li>
             <!-- Options for club_member -->
-            <?php if ($userRole == 'club_member'): ?>
+            <?php if ($userRole == 'member'): ?>
                 <li>
                     <a href="#" class="dropdown-toggle">Events</a>
                     <ul class="dropdown-menu">

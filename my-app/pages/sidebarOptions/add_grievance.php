@@ -2,18 +2,22 @@
 session_start();
 require_once('../../db.php'); 
 $response = array('success' => false, 'message' => '');
+
 if (!isset($_SESSION['id_number'])) {
     $response['message'] = 'You must be logged in to submit a grievance.';
     echo json_encode($response);
     exit();
 }
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $id_number = mysqli_real_escape_string($conn, $_SESSION['id_number']);
-    $domain = mysqli_real_escape_string($conn, $_POST['domain']);
-    $information = mysqli_real_escape_string($conn, $_POST['information']);
+    $grievance_text = mysqli_real_escape_string($conn, $_POST['information']); // Use 'information' for grievance text
+    $status = 'pending'; // Default status
     $grievance_date = date('Y-m-d H:i:s');
-    $sql = "INSERT INTO grievances (user_id, domain, information, date_reported, ongoing, result) 
-            VALUES ('$id_number', '$domain', '$information', '$grievance_date', 1, 'Pending')";
+
+    // Insert grievance into the database
+    $sql = "INSERT INTO grievances (user_id_number, grievance_text, status, created_at) 
+            VALUES ('$id_number', '$grievance_text', '$status', '$grievance_date')";
 
     if (mysqli_query($conn, $sql)) {
         $response['success'] = true;
@@ -25,6 +29,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     exit();
 }
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>

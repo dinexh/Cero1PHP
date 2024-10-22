@@ -17,10 +17,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $event_date = date('Y-m-d');
     $concept_rating = mysqli_real_escape_string($conn, $_POST['concept_rating']);
     $mentorship_rating = mysqli_real_escape_string($conn, $_POST['mentorship_rating']);
+    
+    // Assign the message to feedback_text
+    $feedback_text = $message; // Use the message as feedback text
 
     // Insert feedback into database
-    $sql = "INSERT INTO feedback (user_id, event_name, message, event_date, concept_rating, mentorship_rating, domain_of_event) 
-            VALUES ('$id_number', '$event_name', '$message', '$event_date', '$concept_rating', '$mentorship_rating', '$domain_of_event')";
+    $sql = "INSERT INTO feedback (user_id, feedback_text, event_name, message, event_date, concept_rating, mentorship_rating, domain_of_event) 
+            VALUES ('$id_number', '$feedback_text', '$event_name', '$message', '$event_date', '$concept_rating', '$mentorship_rating', '$domain_of_event')";
 
     if (mysqli_query($conn, $sql)) {
         $response['success'] = true;
@@ -32,6 +35,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     exit();
 }
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
