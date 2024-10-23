@@ -58,6 +58,7 @@ $name = isset($_SESSION['name']) ? $_SESSION['name'] : 'Guest';
                         <li><a href="#" data-page="view_all_cohorts">View All</a></li>
                         <li><a href="#" data-page="add_cohort">Add Cohort</a></li>
                         <li><a href="#" data-page="add_users">Add users</a></li>
+                        <li><a href="#" data-page="add_user">Add user</a></li>
                     </ul>
                 </li>
             <?php endif; ?>
