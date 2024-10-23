@@ -1,13 +1,9 @@
 <?php
 session_start();
 require_once('../../db.php');
-
-// Handle role change using POST request
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['id_number'], $_POST['new_role'])) {
     $id_number = mysqli_real_escape_string($conn, $_POST['id_number']);
     $new_role = mysqli_real_escape_string($conn, $_POST['new_role']);
-
-    // Update the user's role in the database
     $update_sql = "UPDATE users SET role = '$new_role' WHERE id_number = '$id_number'";
 
     if (mysqli_query($conn, $update_sql)) {
@@ -57,15 +53,15 @@ if (!$result) {
                                 <td><?php echo htmlspecialchars($row['cohort']); ?></td>
                                 <td><?php echo htmlspecialchars($row['role']); ?></td>
                                 <td>
-                                    <form method="POST" action="/pages/sidebarOptions/view_all_cohorts.php">
-                                        <input type="hidden" name="id_number" value="<?php echo htmlspecialchars($row['id_number']); ?>">
-                                        <select name="new_role">
-                                            <option value="club_member" <?php echo ($row['role'] == 'club_member') ? 'selected' : ''; ?>>Club Member</option>
-                                            <option value="club_core" <?php echo ($row['role'] == 'club_core') ? 'selected' : ''; ?>>Club Core</option>
-                                            <option value="DSIOG" <?php echo ($row['role'] == 'DSIOG') ? 'selected' : ''; ?>>DSIOG</option>
-                                        </select>
-                                        <button type="submit">Change Role</button>
-                                    </form>
+                                <form method="POST" action="/pages/sidebarOptions/view_all_cohorts.php">
+                                    <input type="hidden" name="id_number" value="<?php echo htmlspecialchars($row['id_number']); ?>">
+                                    <select name="new_role">
+                                        <option value="member" <?php echo ($row['role'] == 'member') ? 'selected' : ''; ?>>Member</option>
+                                        <option value="core" <?php echo ($row['role'] == 'core') ? 'selected' : ''; ?>>Core</option>
+                                        <option value="DSIOG" <?php echo ($row['role'] == 'DSIOG') ? 'selected' : ''; ?>>DSIOG</option>
+                                    </select>
+                                    <button type="submit">Change Role</button>
+                                </form>
                                 </td>
                             </tr>
                         <?php } ?>

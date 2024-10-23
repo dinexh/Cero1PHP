@@ -4,15 +4,15 @@ include 'db.php'; // Ensure your database connection is established
 // User data
 $id_number = '230003035';
 $name = 'Dinesh Korukonda';
-$password = password_hash('123', PASSWORD_DEFAULT); // Hash the password
+$password = '123';
 $mail = '2300030350@kluniversity.in';
 $cohort = 'TNTC';
 $role = 'DSIOG';
-$message_code = 'zeroone';
+$message = 'zeroone';
 
 // Prepare the SQL statement
-$stmt = $conn->prepare("INSERT INTO users (id_number, name, password, mail, cohort, role, message_code) VALUES (?, ?, ?, ?, ?, ?, ?)");
-$stmt->bind_param("sssssss", $id_number, $name, $password, $mail, $cohort, $role, $message_code);
+$stmt = $conn->prepare("INSERT INTO users (id_number, name, password, mail, cohort, role, message) VALUES (?, ?, ?, ?, ?, ?, ?)");
+$stmt->bind_param("sssssss", $id_number, $name, $password, $mail, $cohort, $role, $message);
 
 // Execute the statement
 if ($stmt->execute()) {

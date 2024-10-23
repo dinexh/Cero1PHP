@@ -19,17 +19,17 @@ if ($conn->connect_error) {
 
 $id_number = $_SESSION['id_number'];
 
-// Handle form submission for updating password and message code
+// Handle form submission for updating password and message
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $old_password = $_POST['old_password'] ?? '';
     $new_password = $_POST['new_password'] ?? '';
     $confirm_password = $_POST['confirm_password'] ?? '';
-    $new_message_code = $_POST['new_message_code'] ?? ''; // New message code field
+    $new_message = $_POST['new_message'] ?? ''; // Updated to reflect 'message'
 
     // Log that form data was received
-    echo "<script>console.log('Form data received');</script>";
+    error_log("Form data received");
 
-    $sql = "SELECT password, message_code FROM users WHERE id_number = ?";
+    $sql = "SELECT password, message FROM users WHERE id_number = ?";
     $stmt = $conn->prepare($sql);
     $stmt->bind_param("s", $id_number);
 
@@ -38,68 +38,63 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $user = $result->fetch_assoc();
 
         // Log that the user was found
-        echo "<script>console.log('User found');</script>";
+        error_log("User found");
 
         // Verify old password
-        if (password_verify($old_password, $user['password'])) {
-            // echo "<script>console.log('Old password is correct');</script>";
+        if ($old_password === $user['password']) {  // Compare plain text
+            error_log("Old password is correct");
 
             // Check if new password and confirm password match
             if ($new_password === $confirm_password && !empty($new_password)) {
-                $hashed_new_password = password_hash($new_password, PASSWORD_DEFAULT);
                 $update_sql = "UPDATE users SET password = ? WHERE id_number = ?";
                 $update_stmt = $conn->prepare($update_sql);
-                $update_stmt->bind_param("ss", $hashed_new_password, $id_number);
+                $update_stmt->bind_param("ss", $new_password, $id_number); // Store as plain text
 
                 if ($update_stmt->execute()) {
-                    echo "<script>console.log('Password updated successfully');</script>";
+                    error_log("Password updated successfully");
                     $successMessage = "Password updated successfully.";
                     header("Location: /../../index.php");
                     exit();
                 } else {
-                    echo "<script>console.log('Error updating password');</script>";
-                    header("Location: error.php");
-                    exit(); // Ensure the script stops after redirection
+                    error_log("Error updating password: " . $update_stmt->error);
+                    $message = "Error updating password. Please try again.";
                 }
                 $update_stmt->close();
             } elseif (empty($new_password)) {
                 $message = "New password cannot be empty.";
             } else {
-                echo "<script>console.log('New password and confirm password do not match');</script>";
                 $message = "New password and confirmation do not match.";
             }
 
-            // Update message code if provided
-            if (!empty($new_message_code)) {
-                $update_code_sql = "UPDATE users SET message_code = ? WHERE id_number = ?";
+            // Update message if provided
+            if (!empty($new_message)) {
+                $update_code_sql = "UPDATE users SET message = ? WHERE id_number = ?"; // Updated to reflect 'message'
                 $update_code_stmt = $conn->prepare($update_code_sql);
-                $update_code_stmt->bind_param("ss", $new_message_code, $id_number);
+                $update_code_stmt->bind_param("ss", $new_message, $id_number);
 
                 if ($update_code_stmt->execute()) {
                     header("Location: success.php");
                     exit(); // Ensure the script stops after redirection
                 } else {
-                    header("Location: error.php");
-                    exit(); // Ensure the script stops after redirection
+                    error_log("Error updating message: " . $update_code_stmt->error);
+                    $message = "Error updating message. Please try again.";
                 }
                 $update_code_stmt->close();
             }
         } else {
-            echo "<script>console.log('Old password is incorrect');</script>";
-            header("Location: error.php");
-            exit(); // Ensure the script stops after redirection
+            error_log("Old password is incorrect");
+            $message = "Old password is incorrect.";
         }
     } else {
-        echo "<script>console.log('Error fetching user password');</script>";
-        header("Location: error.php");
-        exit(); // Ensure the script stops after redirection
+        error_log("Error fetching user password: " . $stmt->error);
+        $message = "Error fetching user data. Please try again.";
     }
 
     $stmt->close();
 }
 
 // Fetch user details for display
-$sql = "SELECT id_number, name, mail, role, cohort, message_code FROM users WHERE id_number = ?";
+$sql = "SELECT id_number, name, mail, role, cohort, message FROM users WHERE id_number = ?";
 $stmt = $conn->prepare($sql);
 $stmt->bind_param("s", $id_number);
 
@@ -107,6 +102,7 @@ if ($stmt->execute()) {
     $result = $stmt->get_result();
     $user = $result->fetch_assoc();
 } else {
+    error_log("Error fetching user details: " . $stmt->error);
     $message = "Error fetching user details.";
 }
 
@@ -156,29 +152,29 @@ $conn->close();
                             <td><?= htmlspecialchars($user['role']) ?></td>
                         </tr>
                         <tr>
-                            <td>Message Code</td>
-                            <td><?= htmlspecialchars($user['message_code']) ?></td>
+                            <td>Message</td>
+                            <td><?= htmlspecialchars($user['message']) ?></td>
                         </tr>
                     </table>
                 </div>
             </div>
             <div class="profile-edit">
                 <div class="profile-edit-heading">
-                    <h1>Edit Password and Message Code</h1>
+                    <h1>Edit Password and Message</h1>
                 </div>
                 <div class="profile-edit-options">
                     <form action="/pages/sidebarOptions/profile.php" method="POST">
                         <label for="old_password">Old Password:</label>
-                        <input type="password" id="old_password" name="old_password" required>
+                        <input type="text" id="old_password" name="old_password" required> <!-- Change type to text -->
 
                         <label for="new_password">New Password:</label>
-                        <input type="password" id="new_password" name="new_password" required>
+                        <input type="text" id="new_password" name="new_password" required> <!-- Change type to text -->
 
                         <label for="confirm_password">Confirm Password:</label>
-                        <input type="password" id="confirm_password" name="confirm_password" required>
+                        <input type="text" id="confirm_password" name="confirm_password" required> <!-- Change type to text -->
 
-                        <label for="new_message_code">New Message Code:</label>
-                        <input type="text" id="new_message_code" name="new_message_code" value="<?= htmlspecialchars($user['message_code']) ?>">
+                        <label for="new_message">New Message:</label>
+                        <input type="text" id="new_message" name="new_message" value="<?= htmlspecialchars($user['message']) ?>">
 
                         <button type="submit">Save Changes</button>
                     </form>
