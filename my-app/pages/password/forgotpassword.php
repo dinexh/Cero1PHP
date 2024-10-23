@@ -2,7 +2,7 @@
 include_once(dirname(__DIR__, 2) . '/config.php'); 
 require_once '../../config.php';
 
-$id_number = $name = $mail = $cohort = $message_code = $new_password = $confirm_password = '';
+$id_number = $name = $mail = $cohort = $message = $new_password = $confirm_password = '';
 $step = 1; 
 $success = $error = '';
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -12,10 +12,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $name = trim($_POST['name']);
         $mail = trim($_POST['mail']);
         $cohort = trim($_POST['cohort']);
-        $message_code = trim($_POST['message_code']);
+        $message = trim($_POST['message']);
 
         // Validate input
-        if (empty($id_number) || empty($name) || empty($mail) || empty($cohort) || empty($message_code)) {
+        if (empty($id_number) || empty($name) || empty($mail) || empty($cohort) || empty($message)) {
             $error = 'All fields are required for verification.';
         } else {
             // Connect to the database
@@ -24,9 +24,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 $error = 'Database connection failed: ' . $conn->connect_error;
             } else {
                 // Verify user information and message/code
-                $sql = "SELECT * FROM users WHERE id_number = ? AND name = ? AND mail = ? AND cohort = ? AND message_code = ?";
+                $sql = "SELECT * FROM users WHERE id_number = ? AND name = ? AND mail = ? AND cohort = ? AND message = ?";
                 $stmt = $conn->prepare($sql);
-                $stmt->bind_param('sssss', $id_number, $name, $mail, $cohort, $message_code);
+                $stmt->bind_param('sssss', $id_number, $name, $mail, $cohort, $message);
                 $stmt->execute();
                 $result = $stmt->get_result();
 
@@ -123,7 +123,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
                     <div class="form-group">
                         <label for="message_code" class="form-label">Message/Code:</label>
-                        <input type="text" id="message_code" name="message_code" value="<?php echo htmlspecialchars($message_code); ?>" required class="form-input">
+                        <input type="text" id="message" name="message" value="<?php echo htmlspecialchars($message); ?>" required class="form-input">
                     </div>
 
                     <button type="submit" name="verify_user" class="form-button">Verify</button>
