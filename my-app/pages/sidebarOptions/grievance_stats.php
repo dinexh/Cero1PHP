@@ -1,29 +1,26 @@
 <?php
 require_once('../../db.php'); 
 
-// Query to fetch all grievances
-$query = "SELECT * FROM grievances";  
-$result = mysqli_query($conn, $query);
-
 // Handle form submission to resolve grievance
 if (isset($_POST['end_grievance'])) {
     $grievance_id = $_POST['id'];
 
     // Update the grievance status in the database
-    $query = "UPDATE grievances SET ongoing = 0, result = 'Resolved' WHERE id = ?";
+    $query = "UPDATE grievances SET status = 'resolved' WHERE id = ?";
     $stmt = mysqli_prepare($conn, $query);
     mysqli_stmt_bind_param($stmt, 'i', $grievance_id);
+
     if (mysqli_stmt_execute($stmt)) {
-        $response['success'] = true;
-        $response['message'] = "Grievance resolved successfully!";
+        // Redirect to success page
+        header('Location: /pages/sidebarOptions/success.php'); // Change to your success page path
+        exit();
     } else {
-        $response['message'] = "Error resolving grievance.";
+        // If there's an error, redirect to error page
+        header('Location: /pages/sidebarOptions/error.php');  // Change to your error page path
+        exit();
     }
-    echo json_encode($response);
-    exit();
 }
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -44,30 +41,30 @@ if (isset($_POST['end_grievance'])) {
                     <tr>
                         <th>ID</th>
                         <th>User ID</th>
-                        <th>Domain</th>
-                        <th>Information</th>
+                        <th>Grievance Text</th>
                         <th>Date Reported</th>
-                        <th>Ongoing</th>
-                        <th>Result</th>
+                        <th>Status</th>
                         <th>Action</th> 
                     </tr>
                 </thead>
                 <tbody>
                     <?php
+                    // Query to fetch all grievances
+                    $query = "SELECT * FROM grievances";  
+                    $result = mysqli_query($conn, $query);
+
                     while ($row = mysqli_fetch_assoc($result)) {
                         echo '<tr>';
                         echo '<td>' . $row['id'] . '</td>';
-                        echo '<td>' . $row['user_id'] . '</td>';
-                        echo '<td>' . $row['domain'] . '</td>';
-                        echo '<td>' . $row['information'] . '</td>';
-                        echo '<td>' . $row['date_reported'] . '</td>';
-                        echo '<td>' . ($row['ongoing'] == 1 ? 'Yes' : 'No') . '</td>';
-                        echo '<td>' . $row['result'] . '</td>';
+                        echo '<td>' . $row['user_id_number'] . '</td>';
+                        echo '<td>' . $row['grievance_text'] . '</td>';
+                        echo '<td>' . $row['created_at'] . '</td>';
+                        echo '<td>' . $row['status'] . '</td>';
                         echo '<td>';
-                        if ($row['ongoing'] == 1) {
+                        if ($row['status'] == 'pending') {
                             echo '<form method="POST" action="/pages/sidebarOptions/grievance_stats.php">';
                             echo '<input type="hidden" name="id" value="' . $row['id'] . '">';
-                            echo '<button type="submit" name="end_grievance">End Grievance</button>';
+                            echo '<button type="submit" name="end_grievance">Resolve Grievance</button>';
                             echo '</form>';
                         } else {
                             echo 'No action needed';
@@ -81,24 +78,5 @@ if (isset($_POST['end_grievance'])) {
             </div>
         </div>
     </div>
-    <div id="response"></div>
-    <script>
-        document.getElementById('grievanceForm').onsubmit = function(event) {
-            event.preventDefault(); // Prevent normal form submission
-            var formData = new FormData(this);
-            fetch('/pages/sidebarOptions/grievance_stats.php', {  // Correct the fetch path
-                method: 'POST',
-                body: formData,
-            })
-            .then(response => response.json())
-            .then(data => {
-                document.getElementById('response').innerText = data.message;
-                if (data.success) {
-                    this.reset(); // Clear the form if successful
-                }
-            })
-            .catch(error => console.error('Error:', error));
-        };
-    </script>
 </body>
 </html>
