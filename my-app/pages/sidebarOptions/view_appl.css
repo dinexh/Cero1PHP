@@ -1,0 +1,165 @@
+.app-container {
+    width: 100%;
+    min-height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.app-container-in {
+    height: 95%;
+    background-color: white;
+    padding: 1rem;
+    width: 95%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+.app-container-heading {
+    height: 10%;
+    width: 100%;
+    text-align: center;
+}
+.app-container-heading h1 {
+    font-size: 1.8rem;
+    color: black; 
+}
+.app-container-table {
+    width: 100%;
+    height: 90%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    overflow-x: auto; /* Add horizontal scroll for small screens */
+}
+.app-container-table table {
+    width: 100%;
+    border-collapse: collapse; 
+    margin-top: 1rem;
+    font-size: 0.9rem; /* Slightly reduce font size to fit more content */
+}
+.app-container-table th, .app-container-table td {
+    padding: 0.75rem;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+    color: black;
+    border: 1px solid #ddd;
+    max-width: 200px; /* Limit cell width */
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.app-container-table th {
+    background-color: #f2f2f2; 
+    color: #333;
+    font-weight: bold;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+.app-container-table tr:hover {
+    background-color: #f5f5f5; 
+}
+.app-container-table td {
+    background-color: #ffffff; 
+}
+.app-container-table td:last-child, 
+.app-container-table th:last-child {
+    text-align: center; 
+}
+.app-container-table tr:nth-child(even) {
+    background-color: #f9f9f9; 
+}
+/* Style for the "View" link in the Previous Experience column */
+.app-container-table td a {
+    color: #0056b3;
+    text-decoration: none;
+}
+.app-container-table td a:hover {
+    text-decoration: underline;
+}
+/* Add a class for expandable cells */
+.expandable {
+    cursor: pointer;
+}
+.expanded {
+    white-space: normal;
+    max-width: none;
+}
+
+.feedback-form-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    /* padding: 2rem; */
+    /* background-color: #f7f7f7; */
+    /* min-height: 100vh; */
+}
+
+.feedback-form {
+    background-color: white;
+    width: 100%;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.feedback-form .form-group {
+    margin-bottom: 1.5rem;
+    width: 100%;
+}
+
+.feedback-form label {
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: #333;
+    margin-bottom: 0.5rem;
+    display: block;
+}
+
+.feedback-form input,
+.feedback-form textarea {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 1rem;
+    color: #333;
+    /* box-sizing: border-box; */
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.feedback-form input:focus,
+.feedback-form textarea:focus {
+    border-color: #0056b3;
+    box-shadow: 0 0 8px rgba(0, 86, 179, 0.1);
+    outline: none;
+}
+
+.feedback-form textarea {
+    resize: vertical;
+    height: 150px;
+}
+
+.feedback-form .form-button {
+    text-align: center;
+    margin-top: 2rem;
+}
+
+.feedback-form button {
+    background-color: #0056b3;
+    color: white;
+    padding: 0.75rem 1.5rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.feedback-form button:hover {
+    background-color: #004494;
+    box-shadow: 0 4px 12px rgba(0, 86, 179, 0.3);
+}

@@ -19,50 +19,16 @@ if (!$result) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>View Applications</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
-    <style>
-        body {
-            font-family: 'Poppins', sans-serif;
-            background-color: #f5f7fa;
-            color: #333;
-            line-height: 1.6;
-            /* padding: 20px; */
-        }
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            background-color: #fff;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
-        }
-        h1 {
-            color: #2c3e50;
-            text-align: center;
-            margin-bottom: 30px;
-        }
-        table {
-            width: 100%;
-            border-collapse: collapse;
-        }
-        th, td {
-            padding: 12px;
-            text-align: left;
-            border-bottom: 1px solid #e1e8ed;
-        }
-        th {
-            background-color: #4a90e2;
-            color: #fff;
-        }
-        tr:hover {
-            background-color: #f5f7fa;
-        }
-    </style>
+    <link rel="stylesheet" href="/pages/sidebarOptions/view_appl.css">
 </head>
 <body>
-    <div class="container">
-        <h1>Core Team Applications</h1>
-        <table>
+    <div class="app-container">
+        <div class="app-container-in">
+            <div class="app-container-heading">
+                <h1>Core Team Applications</h1>
+            </div>
+            <div class="app-container-table">
+            <table>
             <thead>
                 <tr>
                     <th>Name</th>
@@ -70,7 +36,10 @@ if (!$result) {
                     <th>Email</th>
                     <th>Phone</th>
                     <th>Domain</th>
+                    <th>Role Expectations</th>
+                    <th>Club Expectations</th>
                     <th>Full Potential</th>
+                    <th>Previous Experience</th>
                 </tr>
             </thead>
             <tbody>
@@ -81,12 +50,29 @@ if (!$result) {
                         <td><?php echo htmlspecialchars($row['email']); ?></td>
                         <td><?php echo htmlspecialchars($row['phone']); ?></td>
                         <td><?php echo htmlspecialchars($row['domain']); ?></td>
+                        <td><?php echo htmlspecialchars($row['role_expectations']); ?></td>
+                        <td><?php echo htmlspecialchars($row['club_expectations']); ?></td>
                         <td><?php echo htmlspecialchars($row['full_potential']); ?></td>
+                        <td><a href="<?php echo htmlspecialchars($row['previous_experience_link']); ?>" target="_blank">View</a></td>
                     </tr>
                 <?php endwhile; ?>
-            </tbody>
-        </table>
+                </tbody>
+            </table>
+            </div>
+        </div>
     </div>
+
+    <script>
+    document.querySelectorAll('.app-container-table td').forEach(cell => {
+        if (cell.offsetWidth < cell.scrollWidth) {
+            cell.classList.add('expandable');
+            cell.addEventListener('click', function() {
+                this.classList.toggle('expanded');
+            });
+        }
+    });
+    </script>
+
 </body>
 </html>
 
@@ -97,4 +83,3 @@ mysqli_free_result($result);
 // Close the database connection
 mysqli_close($conn);
 ?>
-
