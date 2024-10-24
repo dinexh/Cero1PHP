@@ -57,10 +57,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 $error = 'Database connection failed: ' . $conn->connect_error;
             } else {
                 // Update the password
-                $hashed_password = password_hash($new_password, PASSWORD_DEFAULT);
+                // $hashed_password = password_hash($new_password, PASSWORD_DEFAULT);
                 $update_sql = "UPDATE users SET password = ? WHERE id_number = ?";
                 $update_stmt = $conn->prepare($update_sql);
-                $update_stmt->bind_param('ss', $hashed_password, $id_number);
+                $update_stmt->bind_param('ss', $new_password, $id_number);
 
                 if ($update_stmt->execute()) {
                     $success = 'Password updated successfully!';
