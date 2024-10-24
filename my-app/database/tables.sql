@@ -67,3 +67,17 @@ CREATE TABLE projects (
   PRIMARY KEY (id),
   FOREIGN KEY (user_id_number) REFERENCES users(id_number)
 );
+
+CREATE TABLE core_team_applications (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(100) NOT NULL,
+    id_number VARCHAR(50) NOT NULL,
+    email VARCHAR(100) NOT NULL,
+    phone VARCHAR(15) NOT NULL,
+    domain ENUM('Strategic Planning', 'Public Relations and Additional Operations', 'Video Editor and Social Media Manager') NOT NULL,
+    role_expectations TEXT NOT NULL,
+    club_expectations TEXT NOT NULL,
+    full_potential ENUM('Yes', 'No') NOT NULL,
+    previous_experience_link VARCHAR(255) NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
