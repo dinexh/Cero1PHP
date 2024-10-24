@@ -11,7 +11,7 @@ if (isset($_POST['end_grievance'])) {
     mysqli_stmt_bind_param($stmt, 'i', $grievance_id);
 
     if (mysqli_stmt_execute($stmt)) {
-        // Redirect to success page
+        
         header('Location: /pages/sidebarOptions/success.php'); // Change to your success page path
         exit();
     } else {

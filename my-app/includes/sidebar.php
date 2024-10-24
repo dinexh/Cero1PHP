@@ -61,6 +61,7 @@ $name = isset($_SESSION['name']) ? $_SESSION['name'] : 'Guest';
                         <li><a href="#" data-page="add_user">Add user</a></li>
                     </ul>
                 </li>
+                <li><a href="#" data-page="view_appl" class="<?php echo ($currentPage == 'view_appl') ? 'active' : ''; ?>">View Applications</a></li>
             <?php endif; ?>
             <!-- Options for DSIOG and club_core -->
             <?php if ($userRole == 'DSIOG' || $userRole == 'club_core'): ?>

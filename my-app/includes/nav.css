@@ -5,10 +5,10 @@ nav {
     align-items: center;
     background-color: black;
     color: white;
+    padding: 1rem 0;
 }
 
 .nav-in {
-    padding: 0.5rem;
     width: 95%;
     display: flex;
     justify-content: space-between;
@@ -22,20 +22,23 @@ nav {
 }
 
 .nav-in-one span {
-    color: blue;
+    color: #4a90e2;
     font-size: 1.6rem;
     font-weight: 500;
 }
-
+.nav-in-two{
+    width: 30%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.nav-in-two a,
 .nav-in-two-in p {
     font-size: 1.1rem;
     font-weight: 400;
     color: white;
-    padding: 0.4rem;
-}
-
-.nav-in-two-in p:hover {
-    border-radius: 10px;
-    background-color: blue;
-    transition: 0.2s ease;
+    text-decoration: none;
+    padding: 0.6rem 1rem;
+    border-radius: 5px;
+    transition: all 0.3s ease;
 }
