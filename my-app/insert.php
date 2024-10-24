@@ -2,7 +2,7 @@
 include 'db.php'; // Ensure your database connection is established
 
 // User data
-$id_number = '230003035';
+$id_number = '2300030350';
 $name = 'Dinesh Korukonda';
 $password = '123';
 $mail = '2300030350@kluniversity.in';
