@@ -7,27 +7,55 @@ nav {
     color: white;
     padding: 1rem 0;
 }
-
 .nav-in {
     width: 95%;
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
-
 .nav-in-one h1 {
     font-size: 1.6rem;
     font-weight: 500;
     color: white;
 }
-
 .nav-in-one span {
     color: blue;
     font-size: 1.6rem;
     font-weight: 500;
 }
-.nav-in-two{
-    width: 30%;
+.nav-in-two-link {
+    width: 15%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.nav-in-two-link label{
+    color: white;
+}
+.nav-in-two-link select {
+    width: 35%;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    outline: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+.nav-in-two-link select:hover, 
+.nav-in-two-link select:focus {
+    background-color: blue;
+    color: white;
+    border-color: blue;
+}
+.nav-in-two-link a {
+    text-decoration: none;
+    color: white;
+}
+.nav-in-two-link a:hover {
+    color: blue;
+}
+.nav-in-two {
+    width: 18%;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -38,7 +66,13 @@ nav {
     font-weight: 400;
     color: white;
     text-decoration: none;
-    padding: 0.6rem 1rem;
-    border-radius: 5px;
-    transition: all 0.3s ease;
+}
+
+/* Hover effect for "Join the Community" text */
+.nav-in-two-in p:hover {
+    border-radius: 20px;
+    padding: 0.5rem;
+    background-color: blue;
+    transition: 0.5s ease;
+    padding: 0.3rem;
 }
