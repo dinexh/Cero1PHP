@@ -27,7 +27,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>User Registration</title>
-    <link rel="stylesheet" href="/pages/sidebarOptions/users.css">
+    <link rel="stylesheet" href="/pages/sidebarOptions/add_user.css">
 </head>
 <body>
     <div class="user-container">
@@ -62,8 +62,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         <input type="text" id="role" name="role" required>
                     </div>
                     <div class="user-form-group">
-                        <label for="message">Message:</label>
-                        <textarea id="message" name="message" required></textarea>
+                        <label for="message">Message Code:</label>
+                        <input type="text" id="message" name="message" required>
                     </div>
                     <div class="user-form-button-group">
                         <button type="submit">Register</button>

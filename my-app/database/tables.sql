@@ -50,13 +50,6 @@ CREATE TABLE events (
   FOREIGN KEY (user_id_number) REFERENCES users(id_number)
 );
 
-CREATE TABLE cohorts (
-  id INT NOT NULL AUTO_INCREMENT,
-  cohort_name VARCHAR(50) NOT NULL UNIQUE,
-  number_of_students INT DEFAULT 0,
-  PRIMARY KEY (id)
-);
-
 CREATE TABLE projects (
   id INT NOT NULL AUTO_INCREMENT,
   user_id_number VARCHAR(50),
@@ -80,4 +73,19 @@ CREATE TABLE core_team_applications (
     full_potential ENUM('Yes', 'No') NOT NULL,
     previous_experience_link VARCHAR(255) NOT NULL,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+CREATE TABLE cohorts (
+    cohort_name VARCHAR(255) NOT NULL,
+    batch VARCHAR(100) NOT NULL,
+    motto VARCHAR(255) NOT NULL,
+    estimated_number INT NOT NULL,
+    PRIMARY KEY (cohort_name, batch)  -- Composite primary key
+);
+CREATE TABLE cohort_members (
+    name VARCHAR(255) NOT NULL,
+    email VARCHAR(255) NOT NULL,
+    cohort_name VARCHAR(255) NOT NULL,
+    batch VARCHAR(100) NOT NULL,
+    FOREIGN KEY (cohort_name, batch) REFERENCES cohorts(cohort_name, batch),
+    PRIMARY KEY (email)  -- Assuming email is unique for users
 );

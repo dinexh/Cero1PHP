@@ -1,0 +1,116 @@
+.cohort-container {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f5f5f5;
+    padding: 2rem;
+}
+
+.cohort-container-in {
+    width: 100%;
+    max-width: 900px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 2rem;
+}
+
+.cohort-container-heading {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.cohort-container-heading h2 {
+    font-size: 2rem;
+    color: #333;
+    margin: 0;
+}
+
+.message {
+    text-align: center;
+    margin-bottom: 1rem;
+    padding: 0.5rem;
+    border-radius: 4px;
+    background-color: #d4edda;
+    color: #155724;
+}
+
+.cohort-container-form form {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.cohort-form-group {
+    width: calc(50% - 1rem);
+    margin-bottom: 1.5rem;
+}
+
+.cohort-form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+    color: #555;
+}
+
+.cohort-form-group input {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
+}
+
+.cohort-form-group input:focus {
+    border-color: #007bff;
+    outline: none;
+}
+
+.cohort-form-group.file-upload {
+    width: 100%;
+}
+
+.cohort-form-group.file-upload input[type="file"] {
+    padding: 0.5rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 0.9rem;
+}
+
+.cohort-form-button-group {
+    width: 100%;
+    text-align: center;
+    margin-top: 1rem;
+}
+
+.cohort-form-button-group button {
+    background-color: #007bff;
+    color: #ffffff;
+    border: none;
+    border-radius: 4px;
+    padding: 0.75rem 2rem;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.cohort-form-button-group button:hover {
+    background-color: #0056b3;
+}
+
+@media (max-width: 768px) {
+    .cohort-container-in {
+        padding: 1.5rem;
+    }
+
+    .cohort-container-heading h2 {
+        font-size: 1.75rem;
+    }
+
+    .cohort-form-group {
+        width: 100%;
+    }
+}

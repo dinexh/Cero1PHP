@@ -56,6 +56,7 @@ $name = isset($_SESSION['name']) ? $_SESSION['name'] : 'Guest';
                     <a href="#" class="dropdown-toggle">Cohorts Management</a>
                     <ul class="dropdown-menu">
                         <li><a href="#" data-page="view_all_cohorts">View All</a></li>
+                        <li><a href="#" data-page="view_cohorts">View Cohorts</a></li>
                         <li><a href="#" data-page="add_cohort">Add Cohort</a></li>
                         <li><a href="#" data-page="add_users">Add users</a></li>
                         <li><a href="#" data-page="add_user">Add user</a></li>
@@ -119,6 +120,7 @@ $name = isset($_SESSION['name']) ? $_SESSION['name'] : 'Guest';
             <?php endif; ?>
             <!-- common for all -->
             <li><a href="#" data-page="profile" class="<?php echo ($currentPage == 'profile') ? 'active' : ''; ?>">Profile</a></li>
+            <!-- Add this line where appropriate in your sidebar menu -->
         </ul>
     </div>
 </aside>
