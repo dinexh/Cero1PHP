@@ -24,23 +24,52 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_FILES["file"])) {
     }
 }
 ?>
-<link rel="stylesheet" href="/pages/sidebarOptions/users.css">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Users using CSV</title>
+    <link rel="stylesheet" href="/pages/sidebarOptions/users.css">
+</head>
 <body>
-    <div class="container">
-        <div class="container-in">
-            <div class="container-heading">
+    <div class="csv-container">
+        <div class="csv-container-in">
+            <div class="csv-container-heading">
                 <h1>Add Users using CSV Files</h1>
             </div>
-            <div class="container-form"> 
-                <form action="/pages/sidebarOptions/add_users.php" method="POST" enctype="multipart/form-data">
-                    <div class="form-group">
-                        <label for="file">Upload CSV File:</label>
-                        <input type="file" name="file" id="file" accept=".csv" required>
-                    </div>
-                    <div class="form-button-group">
-                        <button type="submit">Add Users</button>
-                    </div>
-                </form>
+            <div class="csv-content">
+                <div class="csv-form-section">
+                    <h2>Upload CSV</h2>
+                    <form action="/pages/sidebarOptions/add_users.php" method="POST" enctype="multipart/form-data">
+                        <div class="csv-form-group">
+                            <label for="file">Select CSV File:</label>
+                            <input type="file" name="file" id="file" accept=".csv" required>
+                        </div>
+                        <div class="csv-form-button-group">
+                            <button type="submit">Add Users</button>
+                        </div>
+                    </form>
+                </div>
+                <div class="csv-info-section">
+                    <h2>Instructions</h2>
+                    <ul>
+                        <li>Prepare a CSV file with user details.</li>
+                        <li>Ensure the CSV has the following columns:
+                            <ol>
+                                <li>ID Number</li>
+                                <li>Name</li>
+                                <li>Password</li>
+                                <li>Email</li>
+                                <li>Cohort</li>
+                                <li>Role</li>
+                                <li>Message</li>
+                            </ol>
+                        </li>
+                        <li>Upload the CSV file using the form.</li>
+                        <li>Click "Add Users" to import the data.</li>
+                    </ul>
+                </div>
             </div>
         </div>
     </div>
