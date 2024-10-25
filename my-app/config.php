@@ -1,10 +1,21 @@
 <?php
-// Define the base URL of your project
-// If your project is accessed via http://localhost/App/, set BASE_URL to '/App/'
-// If it's accessed via the root domain, set BASE_URL to '/'
-define('BASE_URL', '/'); // Adjust this based on your server configuration
-define('DB_HOST', 'localhost');
-define('DB_NAME', 'zeroone_portal'); 
-define('DB_USER', 'root'); // your database username
-define('DB_PASS', 'Dinesh@123'); // your database password
+function loadEnv($file) {
+    if (!file_exists($file)) {
+        throw new Exception("Environment file not found.");
+    }
+    $lines = file($file, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
+    foreach ($lines as $line) {
+        if (strpos(trim($line), '#') === 0) {
+            continue; 
+        }
+        list($name, $value) = explode('=', $line, 2);
+        putenv(trim($name) . '=' . trim($value));
+    }
+}
+loadEnv(__DIR__ . '/.env');
+define('BASE_URL', getenv('BASE_URL'));
+define('DB_HOST', getenv('DB_HOST'));
+define('DB_NAME', getenv('DB_NAME'));
+define('DB_USER', getenv('DB_USER'));
+define('DB_PASS', getenv('DB_PASS'));
 ?>

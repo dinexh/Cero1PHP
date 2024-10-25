@@ -1,61 +1,37 @@
-document.addEventListener('DOMContentLoaded', function() {
-    const form = document.getElementById('multi-step-form');
-    const steps = form.querySelectorAll('.step-content');
-    const stepIndicators = form.querySelectorAll('.step');
-    const prevBtn = document.getElementById('prev-btn');
-    const nextBtn = document.getElementById('next-btn');
-    const submitBtn = document.getElementById('submit-btn');
+document.addEventListener('DOMContentLoaded', function () {
+    const nextButton = document.getElementById('next-btn');
+    const prevButton = document.getElementById('prev-btn');
+    const steps = document.querySelectorAll('.step-content');
     let currentStep = 0;
 
-    function showStep(stepIndex) {
-        steps.forEach((step, index) => {
-            step.style.display = index === stepIndex ? 'block' : 'none';
-            stepIndicators[index].classList.toggle('active', index === stepIndex);
-        });
+    // Log initial state
+    console.log("Initial state:", { currentStep, steps: steps.length });
 
-        prevBtn.style.display = stepIndex > 0 ? 'block' : 'none';
-        nextBtn.style.display = stepIndex < steps.length - 1 ? 'block' : 'none';
-        submitBtn.style.display = stepIndex === steps.length - 1 ? 'block' : 'none';
-
-        currentStep = stepIndex;
-    }
-
-    prevBtn.addEventListener('click', () => {
-        if (currentStep > 0) {
-            showStep(currentStep - 1);
-        }
-    });
-
-    nextBtn.addEventListener('click', () => {
+    nextButton.addEventListener('click', function () {
+        console.log("Next button clicked on step:", currentStep);
         if (currentStep < steps.length - 1) {
-            if (validateStep(currentStep)) {
-                showStep(currentStep + 1);
-            }
+            steps[currentStep].style.display = 'none';
+            currentStep++;
+            steps[currentStep].style.display = 'block';
+            console.log("Current step updated to:", currentStep);
         }
+        updateButtons();
     });
 
-    function validateStep(stepIndex) {
-        const currentStepElement = steps[stepIndex];
-        const inputs = currentStepElement.querySelectorAll('input, select, textarea');
-        let isValid = true;
+    prevButton.addEventListener('click', function () {
+        console.log("Previous button clicked on step:", currentStep);
+        if (currentStep > 0) {
+            steps[currentStep].style.display = 'none';
+            currentStep--;
+            steps[currentStep].style.display = 'block';
+            console.log("Current step updated to:", currentStep);
+        }
+        updateButtons();
+    });
 
-        inputs.forEach(input => {
-            if (input.hasAttribute('required') && !input.value.trim()) {
-                isValid = false;
-                input.classList.add('error');
-            } else {
-                input.classList.remove('error');
-            }
-        });
-
-        return isValid;
+    function updateButtons() {
+        prevButton.style.display = currentStep === 0 ? 'none' : 'block';
+        nextButton.style.display = currentStep === steps.length - 1 ? 'none' : 'block';
+        document.getElementById('submit-btn').style.display = currentStep === steps.length - 1 ? 'block' : 'none';
     }
-
-    form.addEventListener('submit', (e) => {
-        if (!validateStep(currentStep)) {
-            e.preventDefault();
-        }
-    });
-
-    showStep(currentStep);
 });

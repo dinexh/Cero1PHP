@@ -1,7 +1,8 @@
 <?php
-// Include database connection
 require_once('../../db.php');
 require_once '../../config.php';
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
 
 // Check if the form was submitted
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
